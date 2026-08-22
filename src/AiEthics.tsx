@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -133,13 +134,13 @@ export default function AiEthics() {
               it's still a conversation and before it becomes a line item.
             </p>
           </div>
-          <a
-            href="/verazio/#contact"
+          <Link
+            to="/#contact"
             className="flex items-center gap-2 bg-accent text-white font-semibold uppercase tracking-widest text-sm px-6 py-3 shrink-0"
           >
             Start a brief
             <ArrowUpRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
       </section>
 

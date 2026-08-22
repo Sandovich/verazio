@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -239,12 +240,12 @@ export default function Sections() {
           >
             Work
           </h2>
-          <a
-            href="/verazio/portfolio"
+          <Link
+            to="/portfolio"
             className="text-xs md:text-sm font-semibold tracking-widest uppercase text-accent flex items-center gap-1"
           >
             Full portfolio <ArrowUpRight className="w-4 h-4" />
-          </a>
+          </Link>
         </Reveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

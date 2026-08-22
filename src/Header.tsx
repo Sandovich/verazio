@@ -2,6 +2,9 @@ import { motion, type Variants } from "framer-motion";
 import { X } from "lucide-react";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const MotionLink = motion.create(Link);
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -15,10 +18,10 @@ const fadeDown: Variants = {
 };
 
 const NAV_LINKS = [
-  { label: "Story", href: "/verazio/#about" },
-  { label: "Expertise", href: "/verazio/#services" },
-  { label: "Studios", href: "/verazio/#work" },
-  { label: "Feedback", href: "/verazio/#contact" },
+  { label: "Story", href: "/#about" },
+  { label: "Expertise", href: "/#services" },
+  { label: "Studios", href: "/#work" },
+  { label: "Feedback", href: "/#contact" },
 ];
 
 export function Logo({ className = "" }: { className?: string }) {
@@ -38,21 +41,21 @@ export default function Header({ animate = true }: { animate?: boolean }) {
   return (
     <>
       <nav className="relative z-10 flex items-center justify-between px-5 sm:px-8 md:px-12 pt-5 md:pt-6 font-sans uppercase tracking-widest font-semibold text-black">
-        <motion.a
-          href="/verazio/"
+        <MotionLink
+          to="/"
           variants={fadeDown}
           initial={initialState}
           animate="visible"
           custom={0}
         >
           <Logo />
-        </motion.a>
+        </MotionLink>
 
         <div className="hidden md:flex items-center gap-10">
           {NAV_LINKS.map((link, i) => (
-            <motion.a
+            <MotionLink
               key={link.label}
-              href={link.href}
+              to={link.href}
               variants={fadeDown}
               initial={initialState}
               animate="visible"
@@ -60,7 +63,7 @@ export default function Header({ animate = true }: { animate?: boolean }) {
               className="text-sm font-semibold tracking-widest uppercase text-black"
             >
               {link.label}
-            </motion.a>
+            </MotionLink>
           ))}
         </div>
 
@@ -96,24 +99,25 @@ export default function Header({ animate = true }: { animate?: boolean }) {
 
           <div className="flex flex-col gap-8 mt-16">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.href}
                 className="text-3xl font-semibold tracking-widest uppercase text-black"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
-          <a
-            href="/verazio/#contact"
+          <Link
+            to="/#contact"
+            onClick={() => setMenuOpen(false)}
             className="mt-auto flex items-center gap-2 text-xl font-semibold text-accent uppercase tracking-widest"
           >
             Work With Us
             <ArrowUpRight className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       )}
     </>

@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -178,13 +179,13 @@ export default function Portfolio() {
           >
             Want to be case 06?
           </h2>
-          <a
-            href="/verazio/#contact"
+          <Link
+            to="/#contact"
             className="flex items-center gap-2 bg-accent text-white font-semibold uppercase tracking-widest text-sm px-6 py-3"
           >
             Start a brief
             <ArrowUpRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
       </section>
 
