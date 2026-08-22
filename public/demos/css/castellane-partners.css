@@ -122,12 +122,15 @@ h1, h2, h3, h4 {
   position: relative;
   overflow: hidden;
 }
+/* Tiled watermark, not one oversized word: a single "CONFIDENTIAL" at 8rem
+   only ever showed one illegible cropped fragment in the top-left corner
+   (overflow:hidden clipped the rest) — a real repeating SVG pattern tiles
+   the mark evenly across the whole hero instead. */
 .cp-hero::before {
-  content: "CONFIDENTIAL";
-  position: absolute; inset: -20% -10%;
-  font-family: var(--cp-f-mono); font-size: 8rem; font-weight: 700; letter-spacing: 0.1em;
-  color: rgba(233, 230, 222, 0.022); white-space: pre; line-height: 2.2;
-  transform: rotate(-14deg); pointer-events: none; user-select: none;
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='210'%3E%3Cdefs%3E%3Cpattern id='w' width='420' height='210' patternUnits='userSpaceOnUse' patternTransform='rotate(-14)'%3E%3Ctext x='10' y='70' font-family='monospace' font-size='30' font-weight='700' letter-spacing='6' fill='rgb(233,230,222)' fill-opacity='0.05'%3ECONFIDENTIAL%3C/text%3E%3Ctext x='-190' y='175' font-family='monospace' font-size='30' font-weight='700' letter-spacing='6' fill='rgb(233,230,222)' fill-opacity='0.05'%3ECONFIDENTIAL%3C/text%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23w)'/%3E%3C/svg%3E");
+  pointer-events: none; user-select: none;
 }
 .cp-hero__file {
   position: relative;
