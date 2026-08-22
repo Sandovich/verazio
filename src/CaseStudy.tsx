@@ -135,6 +135,32 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     result: "52-week deploy heatmap, zero fabricated data",
   },
+  kessler: {
+    n: "05",
+    name: "Kessler",
+    tag: "Concept work — independent strategist",
+    href: "/verazio/demos/kessler/index.html",
+    hook: "A pitch that stays on screen while the proof does the scrolling.",
+    image: "/verazio/case-studies/kessler-hero.jpg",
+    palette: [
+      { name: "Void", hex: "#0F1115" },
+      { name: "Ash", hex: "#C8CCD4" },
+      { name: "Muted grey", hex: "#6B7280" },
+      { name: "Signal green", hex: "#34D399" },
+    ],
+    typography: "Inter throughout, at a restrained scale — a solo consultant's site succeeds on clarity and confidence, not on a display font doing the persuading for her.",
+    brief:
+      "An independent brand strategist needed a personal site that could carry a pitch, a work history, and writing samples on a single page without the ask getting buried under a mile of scroll. The brief: keep the pitch and the CTA in view at all times, let everything else — case history, writing — scroll independently underneath it.",
+    approach: [
+      "A sticky sidebar holds the name, the one-line pitch, and the primary CTA fixed on screen through the entire visit, while the main content column — About, Work, Writing, Contact — scrolls past it. The pitch line rotates through a handful of closing words via a text-loop component, so the fixed panel still feels alive rather than static.",
+      "Work and Writing render as plain, dense lists rather than card grids — a deliberate choice for a personal-brand site, where the reader is evaluating judgment and track record, not browsing a product catalog. Density reads as substance here in a way a grid of cards wouldn't.",
+    ],
+    build: [
+      "The sticky sidebar is a real CSS `position: sticky` layout, not a JS scroll-listener hack — it collapses cleanly to a stacked mobile layout below the `lg` breakpoint with no separate mobile-only markup to maintain.",
+      "The primary CTA reuses the same WebGL liquid-metal shader button built for Cadence, and the rotating pitch line reuses the same text-loop component pattern — both pulled in as shared components rather than rebuilt from scratch for this case.",
+    ],
+    result: "Sticky-sidebar layout, zero scroll-jank on handoff",
+  },
 };
 
 export default function CaseStudyPage() {

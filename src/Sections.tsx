@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import { LiquidMetalButton } from "./LiquidMetalButton";
 import { TextLoop } from "./TextLoop";
+import { BorderBeam } from "./BorderBeam";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -250,6 +251,13 @@ const WORK = [
     href: "/verazio/demos/cadence/index.html",
     image: "/verazio/case-studies/cadence-hero.jpg",
   },
+  {
+    name: "Kessler",
+    tag: "Concept work — independent strategist",
+    result: "Sticky-sidebar layout, zero scroll-jank on handoff",
+    href: "/verazio/demos/kessler/index.html",
+    image: "/verazio/case-studies/kessler-hero.jpg",
+  },
 ];
 
 const FAQ = [
@@ -418,31 +426,36 @@ export default function Sections() {
           <div className="grid md:grid-cols-4 gap-8 md:gap-6">
             {PROCESS.map((p, i) => (
               <Reveal key={p.n} custom={i + 1}>
-                <div className="flex items-center gap-4 mb-3 md:hidden">
-                  <div className="w-10 h-10 shrink-0 rounded-full border border-accent bg-white text-accent flex items-center justify-center text-xs font-semibold">
-                    {p.n}
-                  </div>
-                  <h3 className="font-semibold uppercase text-lg">{p.name}</h3>
-                </div>
-                <h3 className="hidden md:block font-semibold uppercase text-xl mb-5">
-                  {p.name}
-                </h3>
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-1">
-                      Input
-                    </p>
-                    <p className="text-sm normal-case tracking-normal font-medium text-black/70">
-                      {p.input}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-1">
-                      Output
-                    </p>
-                    <p className="text-sm normal-case tracking-normal font-medium text-black/70">
-                      {p.output}
-                    </p>
+                <div className="relative rounded-2xl border border-black/10 p-5 md:p-6 h-full overflow-hidden">
+                  <BorderBeam duration={9} delay={i * 1.4} />
+                  <div className="relative">
+                    <div className="flex items-center gap-4 mb-3 md:hidden">
+                      <div className="w-10 h-10 shrink-0 rounded-full border border-accent bg-white text-accent flex items-center justify-center text-xs font-semibold">
+                        {p.n}
+                      </div>
+                      <h3 className="font-semibold uppercase text-lg">{p.name}</h3>
+                    </div>
+                    <h3 className="hidden md:block font-semibold uppercase text-xl mb-5">
+                      {p.name}
+                    </h3>
+                    <div className="space-y-3">
+                      <div>
+                        <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-1">
+                          Input
+                        </p>
+                        <p className="text-sm normal-case tracking-normal font-medium text-black/70">
+                          {p.input}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-1">
+                          Output
+                        </p>
+                        <p className="text-sm normal-case tracking-normal font-medium text-black/70">
+                          {p.output}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Reveal>

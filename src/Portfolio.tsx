@@ -60,6 +60,17 @@ const CASES = [
       "A 52-week deploy heatmap and a traced deploy timeline instead of another vanity-metric widget, in a dark dev-tool register most of Verazio's other work deliberately isn't in.",
     result: "52-week deploy heatmap, zero fabricated data",
   },
+  {
+    n: "05",
+    slug: "kessler",
+    name: "Kessler",
+    tag: "Independent strategist",
+    problem:
+      "A solo consultant's site has to carry a personal pitch, a work history, and writing samples on one page without turning into an endless scroll that buries the actual ask.",
+    approach:
+      "A sticky sidebar keeps the pitch and the CTA in view while the content scrolls independently — pitch stays fixed, proof does the scrolling.",
+    result: "Sticky-sidebar layout, zero scroll-jank on handoff",
+  },
 ];
 
 export default function Portfolio() {

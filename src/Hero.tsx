@@ -2,6 +2,7 @@ import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import Header from "./Header";
+import { NumberTicker } from "./NumberTicker";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -15,9 +16,9 @@ const fadeUp: Variants = {
 };
 
 const STATS = [
-  { value: "300", label: "CRAFTED\nBRANDS" },
-  { value: "200", label: "DIGITAL\nPRODUCTS" },
-  { value: "100", label: "VENTURES\nFUNDED" },
+  { value: 300, label: "CRAFTED\nBRANDS" },
+  { value: 200, label: "DIGITAL\nPRODUCTS" },
+  { value: 100, label: "VENTURES\nFUNDED" },
 ];
 
 const HEADING_WORDS = ["Fearless", "Vision", "Delivered"];
@@ -135,7 +136,7 @@ export default function Hero() {
                   <span className="text-accent" style={{ fontSize: "0.5em" }}>
                     +
                   </span>
-                  {stat.value}
+                  <NumberTicker value={stat.value} />
                 </div>
                 <p className="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-black whitespace-pre-line leading-tight mt-1">
                   {stat.label}
