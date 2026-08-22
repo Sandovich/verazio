@@ -254,7 +254,7 @@ const WORK = [
   {
     name: "Kessler",
     tag: "Concept work — independent strategist",
-    result: "Sticky-sidebar layout, zero scroll-jank on handoff",
+    result: "Warm editorial register, zero visual overlap with Cadence",
     href: "/verazio/demos/kessler/index.html",
     image: "/verazio/case-studies/kessler-hero.jpg",
   },

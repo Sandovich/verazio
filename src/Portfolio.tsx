@@ -66,10 +66,10 @@ const CASES = [
     name: "Kessler",
     tag: "Independent strategist",
     problem:
-      "A solo consultant's site has to carry a personal pitch, a work history, and writing samples on one page without turning into an endless scroll that buries the actual ask.",
+      "A solo consultant's site has to carry a personal pitch, a work history, and writing samples on one page — and an earlier version of this case read too close to Cadence's dark dev-tool register to work as a distinct example.",
     approach:
-      "A sticky sidebar keeps the pitch and the CTA in view while the content scrolls independently — pitch stays fixed, proof does the scrolling.",
-    result: "Sticky-sidebar layout, zero scroll-jank on handoff",
+      "A warm-paper editorial register instead: Fraunces serif, a single oxide-red accent, a magnetic top nav, and a bento fact grid in place of the dark void-and-scan-line look.",
+    result: "Warm editorial register, zero visual overlap with Cadence",
   },
   {
     n: "06",
