@@ -1,0 +1,283 @@
+/* ==========================================================================
+   HÔTEL CENDRE — demo/concept build by Verazio
+   Mood: Mediterranean architectural tact — limestone, limewash, salt-touched
+   brass. Structurally distinct from Verazio's corporate template (no sticky
+   pill-button header, no stacked centered hero, no 60/40 split pattern
+   repeated verbatim, no 3-col card grid) and from Castellane Partners'
+   graphite/bone/stamp-red ledger-table language.
+
+   Composition: full-bleed two-tone diptych masthead → single vertical
+   "guest ledger" receipt with marginalia (not a paired card+receipt split)
+   → alternating zig-zag room rows (not a uniform card grid) → a framed
+   visiting-card sign-off (not a wide dark CTA band).
+   ========================================================================== */
+
+:root {
+  --hc-limewash: #EFEAE0;
+  --hc-limewash-dim: #E6DFD1;
+  --hc-paper: #F7F4EC;
+  --hc-indigo: #14182A;
+  --hc-indigo-soft: #C7CAD9;
+  --hc-indigo-text-soft: #494F68;
+  --hc-brass: #A78355;
+  --hc-brass-dark: #7C5F3C;
+  --hc-line: rgba(20, 24, 42, 0.14);
+  --hc-line-strong: rgba(20, 24, 42, 0.28);
+  --hc-line-on-dark: rgba(239, 234, 224, 0.22);
+
+  --hc-f-display: "Gambetta", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --hc-f-body: "Ranade", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --hc-fs-000: 0.75rem;
+  --hc-fs-00: 0.9rem;
+  --hc-fs-0: 1.05rem;
+  --hc-fs-1: 1.3rem;
+  --hc-fs-2: 1.85rem;
+  --hc-fs-3: 2.6rem;
+  --hc-fs-4: 3.4rem;
+  --hc-fs-5: clamp(2.6rem, 1.6rem + 4.4vw, 5.6rem);
+
+  --hc-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --hc-dur-1: 0.5s;
+  --hc-dur-2: 0.85s;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--hc-limewash);
+  color: var(--hc-indigo);
+  font-family: var(--hc-f-body);
+  font-size: var(--hc-fs-0);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+p { margin: 0; }
+h1, h2, h3, h4 {
+  font-family: var(--hc-f-display);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+/* faint limestone grain, self-contained SVG noise — no external image assets */
+.hc-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.08  0 0 0 0 0.09  0 0 0 0 0.16  0 0 0 0.025 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* --- Reveal contract: identical to Verazio main site — visible by default,
+   reveal is progressive enhancement, never a visibility gate. See
+   ../js/motion-init.js and the comment block there for the full contract. */
+[data-reveal] { opacity: 1; transform: none; }
+[data-reveal].reveal-armed { opacity: 0; transform: translateY(14px); }
+[data-reveal].is-revealed {
+  opacity: 1; transform: none;
+  transition: opacity var(--hc-dur-2) var(--hc-ease), transform var(--hc-dur-2) var(--hc-ease);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], [data-reveal].reveal-armed { opacity: 1 !important; transform: none !important; }
+}
+
+.concept-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--hc-f-body); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--hc-indigo-text-soft);
+}
+.concept-badge::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--hc-brass); display: inline-block; }
+.concept-badge--on-dark { color: var(--hc-indigo-soft); }
+.concept-badge--on-dark::before { background: var(--hc-brass); }
+
+/* --- Header: a plain masthead line, not a sticky app bar. Static (scrolls
+   away with the page) — an editorial page, not a product dashboard. -------- */
+.hc-header { border-bottom: 1px solid var(--hc-line); }
+.hc-header__row { display: flex; align-items: center; justify-content: space-between; padding-block: 1.5rem; gap: 1.5rem; flex-wrap: wrap; }
+.hc-wordmark { font-family: var(--hc-f-display); font-size: 1.4rem; font-style: italic; text-decoration: none; color: var(--hc-indigo); }
+.hc-nav { display: flex; align-items: center; gap: 2rem; }
+.hc-nav a { text-decoration: none; font-size: var(--hc-fs-00); color: var(--hc-indigo-text-soft); border-bottom: 1px solid transparent; }
+.hc-nav a:hover { border-bottom-color: var(--hc-brass-dark); color: var(--hc-brass-dark); }
+@media (max-width: 760px) { .hc-nav { display: none; } }
+
+.hc-link-cta {
+  font-family: var(--hc-f-body); font-size: var(--hc-fs-00); font-weight: 600;
+  text-decoration: none; color: var(--hc-brass-dark);
+  border-bottom: 1px solid var(--hc-brass-dark);
+  padding-bottom: 0.1rem;
+}
+.hc-link-cta:hover { color: var(--hc-indigo); border-color: var(--hc-indigo); }
+
+.hc-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--hc-f-body); font-size: var(--hc-fs-00); font-weight: 600;
+  text-decoration: none; padding: 0.75rem 1.4rem;
+  border: 1px solid var(--hc-indigo); border-radius: 1px;
+  color: var(--hc-indigo); background: transparent;
+  transition: background var(--hc-dur-1) var(--hc-ease), color var(--hc-dur-1) var(--hc-ease);
+}
+.hc-btn:hover { background: var(--hc-indigo); color: var(--hc-limewash); }
+.hc-btn--primary { background: var(--hc-brass); border-color: var(--hc-brass); color: var(--hc-paper); }
+.hc-btn--primary:hover { background: var(--hc-brass-dark); border-color: var(--hc-brass-dark); }
+.hc-btn--on-dark { border-color: var(--hc-limewash); color: var(--hc-limewash); }
+.hc-btn--on-dark:hover { background: var(--hc-limewash); color: var(--hc-indigo); }
+
+/* --- Masthead: full-bleed two-tone diptych (66.4/33.6 — a canon key-line
+   pair, not the 60/40 split used site-wide). Left panel carries the giant
+   title; right panel bleeds solid indigo to the viewport edge and carries
+   the subhead + actions in reversed type. This reads as a magazine spread,
+   not a centered marketing hero. ------------------------------------------ */
+.hc-masthead { position: relative; }
+.hc-masthead__bg { position: absolute; inset: 0; display: grid; grid-template-columns: var(--gc-66, 66.6%) var(--gc-33, 33.3%); z-index: 0; }
+.hc-masthead__bg i:first-child { background: var(--hc-limewash); display: block; }
+.hc-masthead__bg i:last-child { background: var(--hc-indigo); display: block; }
+.hc-masthead__inner {
+  position: relative; z-index: 1;
+  max-width: var(--page-max, 1440px); margin-inline: auto;
+  display: grid; grid-template-columns: var(--gc-66, 66.6%) var(--gc-33, 33.3%);
+}
+.hc-masthead__left { padding: var(--gc-vs-4) var(--gc-6) var(--gc-vs-3) var(--gc-12); }
+.hc-masthead__right {
+  padding: var(--gc-vs-4) var(--gc-6) var(--gc-vs-3) var(--gc-3);
+  color: var(--hc-limewash);
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.hc-masthead__tag { font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hc-brass); margin-bottom: var(--gc-vs-1); }
+.hc-masthead h1 { font-size: var(--hc-fs-5); max-width: 11ch; }
+.hc-masthead__sub {
+  font-size: var(--hc-fs-1); color: var(--hc-indigo-soft); max-width: 30ch;
+  font-family: var(--hc-f-display); font-style: italic; font-weight: 400; line-height: 1.5;
+}
+.hc-masthead__actions { margin-top: var(--gc-vs-2); display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.hc-masthead__note { font-size: 0.75rem; color: var(--hc-indigo-soft); opacity: 0.75; }
+
+@media (max-width: 900px) {
+  /* Below 900px the masthead stacks into normal document flow, so the
+     absolutely-positioned two-tone bg layer can no longer track content
+     height (its empty "auto" rows collapse independently of the real text
+     above them, causing pale-on-pale overlap). Paint the two panels
+     directly on the content blocks instead — background always matches
+     content height exactly because it's the same box. */
+  .hc-masthead__bg { display: none; }
+  .hc-masthead__inner { grid-template-columns: 1fr; }
+  .hc-masthead__left { padding: var(--gc-vs-3) var(--gc-6) var(--gc-vs-2); background: var(--hc-limewash); }
+  .hc-masthead__right { padding: var(--gc-vs-3) var(--gc-6) var(--gc-vs-3); background: var(--hc-indigo); }
+  .hc-masthead h1 { max-width: 16ch; }
+}
+
+/* --- Frieze: a thin repeating architectural motif standing in for a photo
+   strip — a running molding, not a big empty hero panel. -------------------- */
+.hc-frieze { display: flex; height: 30px; }
+.hc-frieze i { flex: 1; background: linear-gradient(180deg, var(--hc-brass) 0%, var(--hc-brass-dark) 100%); border-radius: 0 0 999px 999px; opacity: 0.55; margin-inline: 1px; }
+.hc-frieze i:nth-child(3n) { opacity: 0.85; }
+
+/* --- Ledger section: one vertical receipt, centered, with marginalia in
+   the side gutters at desktop width — not a paired card+receipt split. ---- */
+.hc-ledger-section { padding-block: var(--gc-vs-4); position: relative; }
+.hc-ledger-section__head { max-width: 46ch; margin-inline: auto; text-align: center; margin-bottom: var(--gc-vs-3); }
+.hc-ledger-section__head h2 { font-size: var(--hc-fs-3); }
+.hc-ledger-section__head p { margin-top: 0.75rem; color: var(--hc-indigo-text-soft); }
+
+.hc-ledger-wrap { position: relative; max-width: 34rem; margin-inline: auto; }
+.hc-marginalia {
+  position: absolute; width: 13rem;
+  font-size: 0.78rem; color: var(--hc-indigo-text-soft); line-height: 1.55;
+}
+.hc-marginalia--left { left: -15.5rem; top: 2.2rem; text-align: right; }
+.hc-marginalia--right { right: -15.5rem; top: 8rem; font-family: var(--hc-f-body); }
+.hc-marginalia__label { font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hc-brass-dark); margin-bottom: 0.3rem; }
+@media (max-width: 1200px) {
+  .hc-marginalia { position: static; width: auto; text-align: left !important; margin-bottom: 1rem; }
+  .hc-marginalia--right { margin-top: 1rem; margin-bottom: 0; }
+}
+
+.hc-receipt {
+  background: var(--hc-paper);
+  border: 1px solid var(--hc-line-strong);
+  padding: 2rem 2rem 1.6rem;
+  position: relative;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 18px 40px -24px rgba(20, 24, 42, 0.35);
+}
+.hc-receipt::before, .hc-receipt::after {
+  content: "";
+  position: absolute; left: 0; right: 0; height: 9px;
+  background-image: radial-gradient(circle at 7px 4px, var(--hc-limewash) 4.5px, transparent 5px);
+  background-size: 14px 9px;
+  background-repeat: repeat-x;
+}
+.hc-receipt::before { top: -4px; }
+.hc-receipt::after { bottom: -4px; transform: scaleY(-1); }
+.hc-receipt__title { font-family: var(--hc-f-display); font-style: italic; font-size: var(--hc-fs-1); color: var(--hc-indigo); text-align: center; }
+.hc-receipt__sub { margin-top: 0.25rem; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hc-indigo-text-soft); text-align: center; }
+.hc-receipt__rule { margin: 1.3rem 0; border: none; border-top: 1px dashed var(--hc-line-strong); }
+
+.hc-receipt__row { display: flex; align-items: baseline; gap: 0.5rem; font-size: var(--hc-fs-00); padding-block: 0.4rem; }
+.hc-receipt__row-label { white-space: nowrap; }
+.hc-receipt__row-leader { flex: 1; border-bottom: 1px dotted var(--hc-line-strong); transform: translateY(-4px); }
+.hc-receipt__row-val { white-space: nowrap; }
+.hc-receipt__row--strike .hc-receipt__row-val { text-decoration: line-through; text-decoration-color: var(--hc-brass-dark); color: var(--hc-indigo-text-soft); }
+.hc-receipt__row--credit .hc-receipt__row-val { color: var(--hc-brass-dark); }
+.hc-receipt__row--total { font-size: var(--hc-fs-1); font-weight: 600; }
+.hc-receipt__row--total .hc-receipt__row-val { color: var(--hc-indigo); }
+
+.hc-receipt__group-label { margin-top: 0.4rem; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hc-brass-dark); }
+.hc-receipt__foot { margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid var(--hc-line-strong); display: flex; justify-content: space-between; font-size: var(--hc-fs-00); color: var(--hc-indigo-text-soft); }
+.hc-receipt__foot strong { color: var(--hc-brass-dark); }
+
+/* --- Rooms: alternating zig-zag rows, not a uniform card grid ------------- */
+.hc-rooms { padding-block: var(--gc-vs-4); border-top: 1px solid var(--hc-line); }
+.hc-rooms__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; border-bottom: 1px solid var(--hc-line); padding-bottom: var(--gc-vs-1); }
+.hc-rooms__head h2 { font-size: var(--hc-fs-3); max-width: 14ch; }
+.hc-rooms__index { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hc-indigo-text-soft); }
+
+.hc-room-row {
+  display: grid;
+  grid-template-columns: var(--gc-40) var(--gc-60);
+  gap: var(--gc-3);
+  align-items: center;
+  padding-block: var(--gc-vs-3);
+  border-bottom: 1px solid var(--hc-line);
+  position: relative;
+}
+.hc-room-row--rev { grid-template-columns: var(--gc-60) var(--gc-40); }
+.hc-room-row--rev .hc-room-row__text { order: 2; }
+.hc-room-row--rev .hc-room-row__swatch { order: 1; }
+@media (max-width: 860px) {
+  .hc-room-row, .hc-room-row--rev { grid-template-columns: 1fr; row-gap: var(--gc-vs-1); }
+  .hc-room-row--rev .hc-room-row__text, .hc-room-row--rev .hc-room-row__swatch { order: initial; }
+}
+
+.hc-room-row__ghost {
+  font-family: var(--hc-f-display); font-style: italic;
+  font-size: 4.5rem; line-height: 1; color: var(--hc-indigo); opacity: 0.1;
+  margin-bottom: -1.2rem;
+}
+.hc-room-row h3 { font-size: var(--hc-fs-2); }
+.hc-room-row p { margin-top: 0.5rem; color: var(--hc-indigo-text-soft); max-width: 42ch; }
+.hc-room-row__price { margin-top: 1rem; font-variant-numeric: tabular-nums; font-size: var(--hc-fs-1); color: var(--hc-brass-dark); }
+.hc-room-row__price span { font-family: var(--hc-f-body); font-size: 0.68rem; color: var(--hc-indigo-text-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+.hc-room-row__swatch { height: 190px; border-radius: 999px 999px 4px 4px; background: linear-gradient(160deg, var(--hc-indigo), #2a3050); opacity: 0.92; }
+@media (max-width: 860px) { .hc-room-row__swatch { height: 130px; } }
+
+/* --- Sign-off: a small framed "visiting card" floating in a dark field —
+   not a wide split CTA band. ------------------------------------------------ */
+.hc-signoff { background: var(--hc-indigo); padding-block: var(--gc-vs-4); }
+.hc-signoff__card {
+  max-width: 30rem; margin-inline: auto; text-align: center;
+  border: 1px solid var(--hc-line-on-dark);
+  padding: var(--gc-vs-3) var(--gc-vs-2);
+}
+.hc-signoff__label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hc-brass); margin-bottom: 1rem; }
+.hc-signoff h2 { font-size: var(--hc-fs-2); color: var(--hc-limewash); max-width: 20ch; margin-inline: auto; }
+.hc-signoff p { margin-top: 1rem; color: var(--hc-indigo-soft); }
+.hc-signoff .hc-btn { margin-top: 1.5rem; }
+
+.hc-footer { padding-block: var(--gc-vs-2); border-top: 1px solid var(--hc-line); }
+.hc-footer__row { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.8rem; color: var(--hc-indigo-text-soft); }
+.hc-footer a { color: var(--hc-indigo-text-soft); text-decoration: none; }
+.hc-footer a:hover { color: var(--hc-brass-dark); }

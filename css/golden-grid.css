@@ -1,0 +1,146 @@
+/* ==========================================================================
+   VERAZIO — Golden Canon Grid
+   Adapted from D:\Скиллы\Golden-Canon-Grid-for-UI-Design-master
+   That reference is a diagnostic overlay of harmonic key-lines derived from
+   halving (1/2, 1/4, 1/8, 1/16, 1/32) and thirds/sixths (1/3, 1/6), which
+   together approximate the classical page canon and the golden section
+   (~38.2% / ~61.8%, rounded here to the 40/60 line pair the reference ships).
+
+   This file turns those key-lines into a working layout system: every
+   container inset, column split and vertical rhythm value below is one of
+   the reference's own percentages — nothing arbitrary was added.
+
+   Vertical key-lines used:  3.1  6.2  12.5  16.7  20  25  33.3  40  50
+                              60  66.6  75  80  83.3  87.5  93.8  96.9
+   Horizontal key-lines used: 6.2  25  33.3  50  66.6  75  93.8
+   ========================================================================== */
+
+:root {
+  --page-max: 1440px;
+
+  --gc-3:  3.1%;
+  --gc-6:  6.2%;
+  --gc-12: 12.5%;
+  --gc-16: 16.7%;
+  --gc-20: 20%;
+  --gc-25: 25%;
+  --gc-33: 33.3%;
+  --gc-40: 40%;
+  --gc-60: 60%;
+  --gc-66: 66.6%;
+  --gc-75: 75%;
+  --gc-80: 80%;
+  --gc-83: 83.3%;
+  --gc-87: 87.5%;
+  --gc-93: 93.8%;
+  --gc-96: 96.9%;
+
+  /* Vertical rhythm — section spacing tied to viewport-height fractions
+     from the same canon (1/16, 1/8, 1/6, 1/4), clamped to sane rem bounds. */
+  --gc-vs-1: clamp(1.5rem, 6.2vh, 3rem);   /* micro gap   ~1/16 */
+  --gc-vs-2: clamp(2.5rem, 12.5vh, 5rem);  /* block gap   ~1/8  */
+  --gc-vs-3: clamp(3.5rem, 16.7vh, 7rem);  /* section gap ~1/6  */
+  --gc-vs-4: clamp(5rem, 25vh, 10rem);     /* major gap   ~1/4  */
+}
+
+/* --- Page frame -----------------------------------------------------------
+   Everything is scoped to a max-width page; percentages are computed against
+   this box rather than the raw viewport so the canon still reads correctly
+   above ~1440px (the point at which the reference's own lines would drift
+   into meaninglessly wide margins). */
+.gc-page {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  position: relative;
+}
+
+/* --- Content containers -----------------------------------------------------
+   .gc-container  → 12.5% / 87.5% inset  = 75%  measure (primary text column)
+   .gc-wide       → 6.2%  / 93.8% inset  = 87.6% measure (full sections, proof strip)
+   .gc-narrow     → 16.7% / 83.3% inset  = 66.6% measure (pull quotes, lede)
+   .gc-full       → 0 inset (edge-to-edge dividers, footer rule) */
+.gc-container { padding-inline: var(--gc-12); }
+.gc-wide      { padding-inline: var(--gc-6); }
+.gc-narrow    { padding-inline: var(--gc-16); }
+.gc-full      { padding-inline: 0; }
+
+@media (max-width: 900px) {
+  .gc-container { padding-inline: var(--gc-6); }
+  .gc-narrow    { padding-inline: var(--gc-6); }
+}
+@media (max-width: 560px) {
+  .gc-container,
+  .gc-narrow { padding-inline: var(--gc-3); }
+}
+
+/* --- Splits -----------------------------------------------------------------
+   Golden-section pairing: 60/40. Used for hero, "how we work" steps and
+   any two-part editorial layout (statement + detail). */
+.gc-split {
+  display: grid;
+  grid-template-columns: var(--gc-60) var(--gc-40);
+  column-gap: var(--gc-3);
+}
+.gc-split--reverse { grid-template-columns: var(--gc-40) var(--gc-60); }
+
+@media (max-width: 860px) {
+  .gc-split,
+  .gc-split--reverse {
+    grid-template-columns: 1fr;
+    row-gap: var(--gc-vs-2);
+  }
+}
+
+/* --- Index grid (proof strip, portfolio index) -------------------------------
+   Quarters, from the 25/50/75 key-lines. */
+.gc-quarters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: var(--gc-3);
+}
+@media (max-width: 860px) {
+  .gc-quarters { grid-template-columns: repeat(2, 1fr); row-gap: var(--gc-vs-2); }
+}
+@media (max-width: 560px) {
+  .gc-quarters { grid-template-columns: 1fr; }
+}
+
+/* --- Sixths (how-we-work: 4 steps, but rails sit on the 1/6, 2/6 lines) --- */
+.gc-thirds {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: var(--gc-3);
+}
+@media (max-width: 860px) {
+  .gc-thirds { grid-template-columns: 1fr; row-gap: var(--gc-vs-2); }
+}
+
+/* --- Vertical rhythm utilities --- */
+.gc-section       { padding-block: var(--gc-vs-4); }
+.gc-section--tight{ padding-block: var(--gc-vs-3); }
+
+/* --- Diagnostic overlay (dev-only; press "g" to toggle, see js/motion-init.js)
+   Renders the same key-lines as the reference, so the grid can be verified
+   against this implementation at any time. Never visible by default. */
+#gc-overlay {
+  position: fixed;
+  inset: 0;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  pointer-events: none;
+  z-index: 9999;
+  display: none;
+}
+#gc-overlay.is-visible { display: block; }
+#gc-overlay i {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(181, 80, 45, 0.35);
+}
+#gc-overlay b {
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: rgba(43, 58, 47, 0.35);
+}

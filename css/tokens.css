@@ -1,0 +1,39 @@
+/* ==========================================================================
+   VERAZIO — Design Tokens
+   Palette: "Carta & Cotto" — warm paper + terracotta + bottle green.
+   No blue, no violet, no dark mode, no glassmorphism.
+   Contrast checked: ink/ivory 15.5:1, green/ivory 10.9:1, terracotta-dark/ivory 6.1:1
+   ========================================================================== */
+
+:root {
+  /* --- Color --- */
+  --c-ivory: #F7F3EC;       /* primary background */
+  --c-ivory-dim: #EFE9DE;   /* secondary surface, one step down from ivory */
+  --c-ink: #1F1B16;         /* primary text */
+  --c-ink-soft: #4A443C;    /* secondary text, still >7:1 on ivory */
+  --c-terracotta: #B5502D;      /* large surfaces / buttons */
+  --c-terracotta-dark: #9A3F1F; /* small text / links, WCAG AA on ivory */
+  --c-green: #2B3A2F;       /* rare secondary accent */
+  --c-line: rgba(31, 27, 22, 0.14); /* hairline dividers */
+  --c-line-strong: rgba(31, 27, 22, 0.28);
+
+  /* --- Type families --- */
+  --f-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-body: "Switzer", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* --- Type scale (major third-ish, editorial) --- */
+  --fs-000: 0.75rem;   /* 12px — eyebrow, footnote */
+  --fs-00: 0.875rem;   /* 14px — small ui */
+  --fs-0: 1rem;        /* 16px — body */
+  --fs-1: 1.25rem;     /* 20px — lede */
+  --fs-2: 1.75rem;     /* 28px */
+  --fs-3: 2.5rem;      /* 40px */
+  --fs-4: 3.5rem;      /* 56px */
+  --fs-5: clamp(3rem, 2.2rem + 3.2vw, 5.5rem); /* hero */
+
+  /* --- Motion --- */
+  --ease-editorial: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-1: 0.5s;
+  --dur-2: 0.8s;
+}

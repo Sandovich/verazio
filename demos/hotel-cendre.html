@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hôtel Cendre — direct booking, no algorithm</title>
+<meta name="description" content="Concept work by Verazio: a boutique-hotel demo built around one mechanic — showing the guest exactly what booking direct saves versus an OTA.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fontshare's v2 API only reliably resolves the FIRST family when several
+     f[] params share one request (confirmed: a combined request silently
+     substitutes an unrelated family for every family after the first) —
+     so each family gets its own request. -->
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=gambetta@400,500,600&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=ranade@400,500,600,700&display=swap">
+
+<link rel="stylesheet" href="../css/golden-grid.css">
+<link rel="stylesheet" href="css/hotel-cendre.css">
+</head>
+<body class="hc-grain">
+
+<header class="hc-header">
+  <div class="gc-page gc-container hc-header__row">
+    <a href="#top" class="hc-wordmark">Hôtel Cendre</a>
+    <nav class="hc-nav" aria-label="Primary">
+      <a href="#rooms">Rooms</a>
+      <a href="#direct">Book direct</a>
+      <a href="#address">Address</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:1.25rem;">
+      <span class="concept-badge">Concept work — Verazio demo build</span>
+      <a href="#direct" class="hc-link-cta">Book direct →</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================= MASTHEAD ============================= -->
+  <section class="hc-masthead">
+    <div class="hc-masthead__bg" aria-hidden="true"><i></i><i></i></div>
+    <div class="hc-masthead__inner">
+      <div class="hc-masthead__left">
+        <p class="hc-masthead__tag" data-reveal>Eleven rooms · one address · Southern Aegean coast</p>
+        <h1 data-reveal>Slow down. You're already here.</h1>
+      </div>
+      <div class="hc-masthead__right">
+        <p class="hc-masthead__sub" data-reveal>Eleven rooms, one address, no algorithm standing between you and your stay. Book direct and the best rate is always ours to give — not booking.com's.</p>
+        <div class="hc-masthead__actions" data-reveal>
+          <a href="#direct" class="hc-btn hc-btn--primary">See the direct rate</a>
+          <a href="#rooms" class="hc-btn hc-btn--on-dark">See the rooms</a>
+          <span class="hc-masthead__note">1 of 11 rooms · booked direct, always the lowest rate we give</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hc-frieze" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>
+
+  <!-- ==================== DIRECT-BOOKING LEDGER (core mechanic) ===================== -->
+  <section id="direct" class="hc-ledger-section gc-page gc-container">
+    <div class="hc-ledger-section__head" data-reveal>
+      <h2>What booking direct actually saves you.</h2>
+      <p>No dark patterns, no fake urgency counters — the OTA rate, the commission we don't pay, and the direct rate, all in one line of paper.</p>
+    </div>
+
+    <div class="hc-ledger-wrap">
+      <div class="hc-marginalia hc-marginalia--left" data-reveal>
+        <p class="hc-marginalia__label">Room</p>
+        <p>The Corner Suite — two exposures, private terrace, stone soaking tub. Our most requested room.</p>
+      </div>
+
+      <div class="hc-receipt" data-reveal>
+        <p class="hc-receipt__title">Direct-guest ledger</p>
+        <p class="hc-receipt__sub">The Corner Suite · one night</p>
+        <hr class="hc-receipt__rule">
+
+        <div class="hc-receipt__row hc-receipt__row--strike">
+          <span class="hc-receipt__row-label">Rate via Booking.com / Expedia</span>
+          <span class="hc-receipt__row-leader"></span>
+          <span class="hc-receipt__row-val">€340</span>
+        </div>
+        <div class="hc-receipt__row hc-receipt__row--credit">
+          <span class="hc-receipt__row-label">Commission we don't pay — ~18%</span>
+          <span class="hc-receipt__row-leader"></span>
+          <span class="hc-receipt__row-val">−€51</span>
+        </div>
+        <hr class="hc-receipt__rule">
+        <div class="hc-receipt__row hc-receipt__row--total">
+          <span class="hc-receipt__row-label">Your direct rate</span>
+          <span class="hc-receipt__row-leader"></span>
+          <span class="hc-receipt__row-val">€289</span>
+        </div>
+
+        <p class="hc-receipt__group-label">Included when you book direct</p>
+        <div class="hc-receipt__row">
+          <span class="hc-receipt__row-label">Room upgrade</span>
+          <span class="hc-receipt__row-leader"></span>
+          <span class="hc-receipt__row-val">If available</span>
+        </div>
+        <div class="hc-receipt__row">
+          <span class="hc-receipt__row-label">Late checkout</span>
+          <span class="hc-receipt__row-leader"></span>
+          <span class="hc-receipt__row-val">Until 2pm</span>
+        </div>
+        <div class="hc-receipt__row">
+          <span class="hc-receipt__row-label">Concierge line</span>
+          <span class="hc-receipt__row-leader"></span>
+          <span class="hc-receipt__row-val">Direct, no queue</span>
+        </div>
+        <div class="hc-receipt__row">
+          <span class="hc-receipt__row-label">Cancellation</span>
+          <span class="hc-receipt__row-leader"></span>
+          <span class="hc-receipt__row-val">Flexible, 48h</span>
+        </div>
+
+        <div class="hc-receipt__foot">
+          <span>Saved vs. OTA, this stay</span>
+          <strong>€51</strong>
+        </div>
+      </div>
+
+      <div class="hc-marginalia hc-marginalia--right" data-reveal>
+        <p class="hc-marginalia__label">Guest folio</p>
+        <p>Booked direct · 3 nights · no intermediary between the ledger and the room.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= ROOMS (zig-zag) ================================ -->
+  <section id="rooms" class="hc-rooms gc-page gc-container">
+    <div class="hc-rooms__head" data-reveal>
+      <h2>The rooms</h2>
+      <span class="hc-rooms__index">Direct rate shown — always the lowest we give</span>
+    </div>
+
+    <div class="hc-room-row" data-reveal>
+      <div class="hc-room-row__text">
+        <p class="hc-room-row__ghost">01</p>
+        <h3>Courtyard Room</h3>
+        <p>Ground floor, onto the lemon-tree courtyard. Queen bed, limewashed walls, stone floor.</p>
+        <div class="hc-room-row__price">€189 <span>/ night direct</span></div>
+      </div>
+      <div class="hc-room-row__swatch" aria-hidden="true"></div>
+    </div>
+
+    <div class="hc-room-row hc-room-row--rev" data-reveal>
+      <div class="hc-room-row__text">
+        <p class="hc-room-row__ghost">02</p>
+        <h3>The Corner Suite</h3>
+        <p>Two windows, two exposures — courtyard limewash on one wall, open sea on the other. Private terrace, stone soaking tub.</p>
+        <div class="hc-room-row__price">€289 <span>/ night direct</span></div>
+      </div>
+      <div class="hc-room-row__swatch" aria-hidden="true"></div>
+    </div>
+
+    <div class="hc-room-row" data-reveal>
+      <div class="hc-room-row__text">
+        <p class="hc-room-row__ghost">03</p>
+        <h3>Rooftop Suite</h3>
+        <p>Top floor, unbroken sea line, outdoor shower, brass detailing throughout.</p>
+        <div class="hc-room-row__price">€365 <span>/ night direct</span></div>
+      </div>
+      <div class="hc-room-row__swatch" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ============================== SIGN-OFF =============================== -->
+  <section id="address" class="hc-signoff">
+    <div class="gc-page gc-container">
+      <div class="hc-signoff__card" data-reveal>
+        <p class="hc-signoff__label">No middleman</p>
+        <h2>Write to us directly — we reply the same day.</h2>
+        <p>Dates, questions, anything not on this page.</p>
+        <a href="mailto:stay@hotelcendre.example" class="hc-btn hc-btn--on-dark">stay@hotelcendre.example</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="hc-footer">
+  <div class="gc-page gc-container hc-footer__row">
+    <span>Hôtel Cendre — concept work, demo build. Not a live property.</span>
+    <a href="../index.html">Built by Verazio →</a>
+  </div>
+</footer>
+
+<script src="../js/motion-init.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Castellane Partners — advisory, by introduction only</title>
+<meta name="description" content="Concept work by Verazio: an M&amp;A / family-office advisory demo built around a redacted ledger of closed transactions and an inline NDA gesture.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fontshare's v2 API only reliably resolves the FIRST family when several
+     f[] params share one request (confirmed: a combined request silently
+     substitutes an unrelated family for every family after the first) —
+     so Erode and Author each get their own request. Fragment Mono is a
+     Google Fonts family (not Fontshare, despite the brief grouping it with
+     the other two) — it does not exist under any slug on Fontshare's API,
+     confirmed by direct request. -->
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=erode@400,500,600&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=author@400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap">
+
+<link rel="stylesheet" href="../css/golden-grid.css">
+<link rel="stylesheet" href="css/castellane-partners.css">
+</head>
+<body>
+
+<header class="cp-header">
+  <div class="cp-header__top">
+    <a href="#top" class="cp-wordmark">Castellane Partners</a>
+  </div>
+  <div class="gc-page gc-container cp-header__bottom">
+    <span class="cp-header__ref">Geneva · advisory since 2014</span>
+    <nav class="cp-nav" aria-label="Primary">
+      <a href="#practice">Practice</a>
+      <a href="#transactions">Transactions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:1.1rem;">
+      <span class="concept-badge">Concept work — Verazio demo build</span>
+      <a href="#contact" class="cp-btn">Request an introduction</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================= HERO: dossier cover ============================= -->
+  <section class="cp-hero">
+    <div class="gc-page gc-container">
+      <div class="cp-hero__file">
+        <span class="cp-hero__stamp">Confidential</span>
+        <div class="cp-hero__file-meta">
+          <span>File No. CP-0119</span>
+          <span>Opened 2026</span>
+        </div>
+        <p class="cp-hero__tag" data-reveal>Advisory · by introduction only</p>
+        <h1 data-reveal>Some conversations only happen once.</h1>
+        <p class="cp-hero__sub" data-reveal>Castellane Partners advises founders, families, and boards through the transactions that define what comes next — quietly, and only with those for whom it matters.</p>
+        <div class="cp-hero__actions" data-reveal>
+          <a href="#transactions" class="cp-btn">Selected transactions</a>
+          <span class="cp-hero__note">No public deal announcements. Ever.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LEDGER TABLE (tombstone wall + NDA) ===================== -->
+  <section id="transactions" class="cp-section gc-page gc-container">
+    <div class="cp-section__head" data-reveal>
+      <p class="cp-section__eyebrow">Closed mandates · ledger</p>
+      <h2>Selected transactions</h2>
+      <p class="cp-section__lede">Sector, size, and terms are shown; the counterparty is not. Mandate notes stay sealed until you unseal them — that part isn't a formality here, it's the actual procedure.</p>
+    </div>
+
+    <div class="cp-ledger-table" data-reveal-group>
+      <div class="cp-ledger-table__head-row" aria-hidden="true">
+        <span>Sector</span><span>Size</span><span>Multiple</span><span>Mandate</span><span>Counterparty</span><span>Notes</span>
+      </div>
+
+      <div class="cp-ledger-row" data-reveal-item>
+        <div class="cp-ledger-cell cp-ledger-cell--sector" data-label="Sector">Consumer Health</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Deal size">€40–60M</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Multiple">6.4x EBITDA</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Mandate to close">14 wks</div>
+        <div class="cp-ledger-cell cp-ledger-cell--counterparty" data-label="Counterparty">
+          <span class="cp-ledger-name">Meridian Health Group</span>
+          <span class="cp-ledger-stamp">Confidential</span>
+        </div>
+        <div class="cp-ledger-cell" data-label="Notes">
+          <div class="cp-seal" data-seal>
+            <p class="cp-seal__label">Sealed</p>
+            <form class="cp-seal__form" data-seal-form>
+              <input type="text" maxlength="4" placeholder="A.B." aria-label="Your initials">
+              <button type="submit">Unseal</button>
+            </form>
+            <div class="cp-seal__revealed" data-seal-revealed hidden>
+              <p>Cross-border structuring required a Luxembourg holding vehicle; three-way negotiation with an existing minority investor.</p>
+              <span class="cp-seal__stamp">Verified · <span data-seal-who></span> · <span data-seal-time></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cp-ledger-row" data-reveal-item>
+        <div class="cp-ledger-cell cp-ledger-cell--sector" data-label="Sector">Family Office Succession</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Deal size">Undisclosed</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Multiple">—</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Mandate to close">22 wks</div>
+        <div class="cp-ledger-cell cp-ledger-cell--counterparty" data-label="Counterparty">
+          <span class="cp-ledger-name">The Ardenne Family Office</span>
+          <span class="cp-ledger-stamp">Confidential</span>
+        </div>
+        <div class="cp-ledger-cell" data-label="Notes">
+          <div class="cp-seal" data-seal>
+            <p class="cp-seal__label">Sealed</p>
+            <form class="cp-seal__form" data-seal-form>
+              <input type="text" maxlength="4" placeholder="A.B." aria-label="Your initials">
+              <button type="submit">Unseal</button>
+            </form>
+            <div class="cp-seal__revealed" data-seal-revealed hidden>
+              <p>Multi-generational succession plan spanning two jurisdictions; concluded without external financing.</p>
+              <span class="cp-seal__stamp">Verified · <span data-seal-who></span> · <span data-seal-time></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cp-ledger-row" data-reveal-item>
+        <div class="cp-ledger-cell cp-ledger-cell--sector" data-label="Sector">Industrial Manufacturing</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Deal size">€120–180M</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Multiple">7.1x EBITDA</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Mandate to close">9 wks</div>
+        <div class="cp-ledger-cell cp-ledger-cell--counterparty" data-label="Counterparty">
+          <span class="cp-ledger-name">Fenwick Industrial Holdings</span>
+          <span class="cp-ledger-stamp">Confidential</span>
+        </div>
+        <div class="cp-ledger-cell" data-label="Notes">
+          <div class="cp-seal" data-seal>
+            <p class="cp-seal__label">Sealed</p>
+            <form class="cp-seal__form" data-seal-form>
+              <input type="text" maxlength="4" placeholder="A.B." aria-label="Your initials">
+              <button type="submit">Unseal</button>
+            </form>
+            <div class="cp-seal__revealed" data-seal-revealed hidden>
+              <p>Single strategic buyer, terms pre-negotiated ahead of mandate — the shortest close on this ledger.</p>
+              <span class="cp-seal__stamp">Verified · <span data-seal-who></span> · <span data-seal-time></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cp-ledger-row" data-reveal-item>
+        <div class="cp-ledger-cell cp-ledger-cell--sector" data-label="Sector">Private SaaS</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Deal size">€25–35M</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Multiple">5.8x ARR</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Mandate to close">11 wks</div>
+        <div class="cp-ledger-cell cp-ledger-cell--counterparty" data-label="Counterparty">
+          <span class="cp-ledger-name">A Series C vertical-SaaS platform</span>
+          <span class="cp-ledger-stamp">Confidential</span>
+        </div>
+        <div class="cp-ledger-cell" data-label="Notes">
+          <div class="cp-seal" data-seal>
+            <p class="cp-seal__label">Sealed</p>
+            <form class="cp-seal__form" data-seal-form>
+              <input type="text" maxlength="4" placeholder="A.B." aria-label="Your initials">
+              <button type="submit">Unseal</button>
+            </form>
+            <div class="cp-seal__revealed" data-seal-revealed hidden>
+              <p>Founder retained a board seat and a minority stake post-close.</p>
+              <span class="cp-seal__stamp">Verified · <span data-seal-who></span> · <span data-seal-time></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cp-ledger-row" data-reveal-item>
+        <div class="cp-ledger-cell cp-ledger-cell--sector" data-label="Sector">Real Estate Holding</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Deal size">€80–100M</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Multiple">—</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Mandate to close">18 wks</div>
+        <div class="cp-ledger-cell cp-ledger-cell--counterparty" data-label="Counterparty">
+          <span class="cp-ledger-name">A private real-estate holding company</span>
+          <span class="cp-ledger-stamp">Confidential</span>
+        </div>
+        <div class="cp-ledger-cell" data-label="Notes">
+          <div class="cp-seal" data-seal>
+            <p class="cp-seal__label">Sealed</p>
+            <form class="cp-seal__form" data-seal-form>
+              <input type="text" maxlength="4" placeholder="A.B." aria-label="Your initials">
+              <button type="submit">Unseal</button>
+            </form>
+            <div class="cp-seal__revealed" data-seal-revealed hidden>
+              <p>Four-property portfolio carve-out; two competing bidders through the final round.</p>
+              <span class="cp-seal__stamp">Verified · <span data-seal-who></span> · <span data-seal-time></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cp-ledger-row" data-reveal-item>
+        <div class="cp-ledger-cell cp-ledger-cell--sector" data-label="Sector">Specialty Finance</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Deal size">€60–75M</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Multiple">6.9x EBITDA</div>
+        <div class="cp-ledger-cell cp-ledger-cell--num" data-label="Mandate to close">13 wks</div>
+        <div class="cp-ledger-cell cp-ledger-cell--counterparty" data-label="Counterparty">
+          <span class="cp-ledger-name">A specialty finance lender</span>
+          <span class="cp-ledger-stamp">Confidential</span>
+        </div>
+        <div class="cp-ledger-cell" data-label="Notes">
+          <div class="cp-seal" data-seal>
+            <p class="cp-seal__label">Sealed</p>
+            <form class="cp-seal__form" data-seal-form>
+              <input type="text" maxlength="4" placeholder="A.B." aria-label="Your initials">
+              <button type="submit">Unseal</button>
+            </form>
+            <div class="cp-seal__revealed" data-seal-revealed hidden>
+              <p>Regulatory approval across two jurisdictions pushed the close later than initially scoped.</p>
+              <span class="cp-seal__stamp">Verified · <span data-seal-who></span> · <span data-seal-time></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= PRACTICE: numbered clauses ================================ -->
+  <section id="practice" class="cp-section gc-page gc-container">
+    <div class="cp-section__head" data-reveal>
+      <p class="cp-section__eyebrow">Scope</p>
+      <h2>What we advise on</h2>
+    </div>
+    <div class="cp-clauses">
+      <p class="cp-clause" data-reveal><span class="cp-clause__mark">§1.</span><span class="cp-clause__term">Sell-side &amp; buy-side advisory.</span> <span class="cp-clause__body">End-to-end deal leadership for owners selling a business they built, and for acquirers moving on a target they've already decided matters.</span></p>
+      <p class="cp-clause" data-reveal><span class="cp-clause__mark">§2.</span><span class="cp-clause__term">Family office structuring.</span> <span class="cp-clause__body">Capital structure and governance for families managing wealth across generations, jurisdictions, and increasingly complicated tax exposure.</span></p>
+      <p class="cp-clause" data-reveal><span class="cp-clause__mark">§3.</span><span class="cp-clause__term">Board &amp; succession counsel.</span> <span class="cp-clause__body">Independent counsel for boards navigating leadership transition, activist pressure, or a decision too sensitive for the regular agenda.</span></p>
+    </div>
+  </section>
+
+  <!-- ============================== SIGN-OFF =============================== -->
+  <section id="contact" class="cp-signoff">
+    <div class="gc-page gc-container cp-signoff__inner">
+      <p class="cp-signoff__note" data-reveal>By introduction only.</p>
+      <p class="cp-signoff__body" data-reveal>We don't run a pipeline. If someone you trust suggested you write to us, that's still the fastest way in.</p>
+      <div class="cp-signoff__sig" data-reveal>
+        <p class="cp-signoff__sig-name">Castellane Partners</p>
+        <a href="mailto:principal@castellanepartners.example">principal@castellanepartners.example</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="cp-footer">
+  <div class="gc-page gc-container cp-footer__row">
+    <span>Castellane Partners — concept work, demo build. Not a real advisory practice.</span>
+    <a href="../index.html">Built by Verazio →</a>
+  </div>
+</footer>
+
+<script src="../js/motion-init.js"></script>
+<script src="js/castellane-nda.js"></script>
+</body>
+</html>
