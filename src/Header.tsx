@@ -22,7 +22,7 @@ const NAV_LINKS = [
   { label: "Expertise", href: "/#services" },
   { label: "Studios", href: "/#work" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Team", href: "/#team" },
+  { label: "Team", href: "/team" },
   { label: "Contact", href: "/contact" },
 ];
 

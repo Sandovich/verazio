@@ -9,6 +9,7 @@ import Contact from "./Contact";
 import Careers from "./Careers";
 import Journal from "./Journal";
 import JournalPost from "./JournalPost";
+import Team from "./Team";
 
 function Home() {
   const { hash } = useLocation();
@@ -46,6 +47,7 @@ function App() {
         <Route path="/careers" element={<Careers />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/journal/:slug" element={<JournalPost />} />
+        <Route path="/team" element={<Team />} />
       </Routes>
     </BrowserRouter>
   );

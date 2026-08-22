@@ -1,5 +1,5 @@
 import { motion, useInView, type Variants } from "framer-motion";
-import { ArrowUpRight, Globe, Rocket, Presentation, Plus } from "lucide-react";
+import { ArrowUpRight, Globe, Rocket, Presentation, Plus, Check } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
@@ -45,6 +45,12 @@ const SERVICES = [
     body: "Full business websites, built around how your buyers actually decide. A template is built around nobody's. We treat information architecture, copy, and design as one system, so the site does the job a strong marketing hire would do: qualify visitors, explain the offer clearly, move them to a call or a cart.",
     meta: "Delivered in 1–3 weeks",
     icon: Globe,
+    capabilities: [
+      "Multi-page architecture mapped to the actual buyer journey",
+      "CMS wiring so you can update content without calling us",
+      "SEO fundamentals built in, not bolted on after launch",
+      "Custom motion and interaction, not a page-builder template",
+    ],
   },
   {
     n: "02",
@@ -52,6 +58,12 @@ const SERVICES = [
     body: "Pages built for a specific campaign, launch, or market entry — made to convert first and photograph well second. Each one is scoped around a single goal, which means you can run several in parallel across markets or offers without waiting on a full site rebuild.",
     meta: "Scoped per campaign",
     icon: Rocket,
+    capabilities: [
+      "Single-goal structure, scoped to one offer or campaign",
+      "Variant builds ready for message or offer A/B testing",
+      "Analytics and conversion tracking wired in from day one",
+      "Fast enough to run several in parallel across markets",
+    ],
   },
   {
     n: "03",
@@ -59,6 +71,12 @@ const SERVICES = [
     body: "Decks and presentations for the moments that actually close deals — investor pitches, sales meetings, partner proposals. We build the narrative and the design as one piece of work, so the deck argues your case instead of just decorating it.",
     meta: "Made for the room it's presented in, not for a slide library",
     icon: Presentation,
+    capabilities: [
+      "Investor decks, sales decks, and partner proposals",
+      "Narrative structure built alongside the visual design",
+      "Print-ready and on-screen presentation versions",
+      "Data visualization that argues the point, not just displays it",
+    ],
   },
 ];
 
@@ -177,6 +195,14 @@ function SpotlightCard({
           <p className="text-sm normal-case tracking-normal font-medium leading-relaxed text-black/70">
             {s.body}
           </p>
+          <ul className="mt-5 space-y-2.5 border-t border-black/10 pt-5">
+            {s.capabilities.map((c) => (
+              <li key={c} className="flex items-start gap-2.5 text-xs normal-case tracking-normal font-medium text-black/70">
+                <Check className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" strokeWidth={2.25} />
+                {c}
+              </li>
+            ))}
+          </ul>
           <p className="text-xs font-semibold tracking-widest uppercase text-accent mt-5">
             {s.meta}
           </p>
@@ -216,89 +242,6 @@ const WORK = [
     image: "/verazio/case-studies/vibrant-wellness-hero.jpg",
   },
 ];
-
-const FOUNDERS = [
-  {
-    name: "Yana",
-    role: "Co-Founder & Creative Director",
-    focus:
-      "The instinct behind every brief. If a build doesn't feel right, she's the one who says so before it ships, not after.",
-  },
-  {
-    name: "Veronika",
-    role: "Co-Founder & Client Lead",
-    focus:
-      "The person you'll actually talk to. Keeps every project honest about scope, timeline, and what's realistic before it becomes a problem.",
-  },
-];
-
-const PRODUCTION = [
-  {
-    name: "Alexander",
-    role: "Lead Developer",
-    focus:
-      "Turns an approved brief into working code fast enough that \"1 to 3 weeks\" is a schedule, not a marketing line.",
-  },
-  {
-    name: "Kamila",
-    role: "Frontend Developer",
-    focus:
-      "Builds the difference between a site that works and one that feels alive — the motion and interaction most studios skip.",
-  },
-  {
-    name: "Nikolai",
-    role: "AI & Automation Engineer",
-    focus:
-      "Builds the machinery behind the machinery — the AI tooling that lets the rest of the team move at speed without cutting corners.",
-  },
-  {
-    name: "Ekaterina",
-    role: "UI/UX Designer",
-    focus:
-      "Draws the line between \"looks like everyone else's AI output\" and something that actually looks considered.",
-  },
-];
-
-const COLLABORATORS = [
-  {
-    name: "Anastasia",
-    role: "Copywriter & Content Strategist",
-    focus: "Writes so a page argues its case in the first five seconds, not somewhere in paragraph four.",
-  },
-  {
-    name: "Vlada",
-    role: "QA & Delivery Lead",
-    focus: "The last person who touches a build before your client does. Nothing ships broken on her watch.",
-  },
-];
-
-function PersonCard({
-  person,
-  i,
-  large = false,
-}: {
-  person: { name: string; role: string; focus: string };
-  i: number;
-  large?: boolean;
-}) {
-  return (
-    <Reveal custom={i}>
-      <div className="border border-black/10 p-6 md:p-8 h-full">
-        <h3
-          className={`font-semibold uppercase ${large ? "text-xl md:text-2xl" : "text-lg"}`}
-        >
-          {person.name}
-        </h3>
-        <p className="text-xs font-semibold tracking-widest uppercase text-accent mt-1 mb-4">
-          {person.role}
-        </p>
-        <p className="text-sm normal-case tracking-normal font-medium leading-relaxed text-black/70">
-          {person.focus}
-        </p>
-      </div>
-    </Reveal>
-  );
-}
 
 const FAQ = [
   {
@@ -569,54 +512,6 @@ export default function Sections() {
           {FAQ.map((item, i) => (
             <FAQItem key={item.q} item={item} i={i} />
           ))}
-        </div>
-      </section>
-
-      {/* TEAM */}
-      <section id="team" className="px-5 sm:px-8 md:px-12 py-20 md:py-32 border-t border-black/10">
-        <Reveal className="mb-12 md:mb-20">
-          <p className="text-xs md:text-sm font-semibold tracking-widest uppercase text-accent mb-3">
-            Team
-          </p>
-          <h2
-            className="font-semibold uppercase leading-[0.95]"
-            style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
-          >
-            People, not a pipeline.
-          </h2>
-        </Reveal>
-
-        <div className="mb-12 md:mb-16">
-          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
-            Founders
-          </p>
-          <div className="grid sm:grid-cols-2 gap-6">
-            {FOUNDERS.map((p, i) => (
-              <PersonCard key={p.name} person={p} i={i} large />
-            ))}
-          </div>
-        </div>
-
-        <div className="mb-12 md:mb-16">
-          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
-            Production
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PRODUCTION.map((p, i) => (
-              <PersonCard key={p.name} person={p} i={i} />
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
-            Collaborators
-          </p>
-          <div className="grid sm:grid-cols-2 gap-6">
-            {COLLABORATORS.map((p, i) => (
-              <PersonCard key={p.name} person={p} i={i} />
-            ))}
-          </div>
         </div>
       </section>
 
