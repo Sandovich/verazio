@@ -21,6 +21,9 @@ type CaseStudy = {
   tag: string;
   href: string;
   hook: string;
+  image: string;
+  palette: { name: string; hex: string }[];
+  typography: string;
   brief: string;
   approach: string[];
   build: string[];
@@ -28,48 +31,20 @@ type CaseStudy = {
 };
 
 const CASE_STUDIES: Record<string, CaseStudy> = {
-  "hotel-cendre": {
-    n: "01",
-    name: "Hôtel Cendre",
-    tag: "Concept work — boutique hospitality",
-    href: "/verazio/demos/hotel-cendre.html",
-    hook: "A guest ledger that makes booking direct the obvious choice, not the fine print.",
-    brief:
-      "Eleven rooms on the Southern Aegean coast, and a fixed cut of every booking quietly handed to an OTA. Most hotels answer that with a banner reading \"book direct and save\" — a claim with no receipt behind it. We set ourselves a harder brief: make the site itself the receipt.",
-    approach: [
-      "Everything starts from what the room actually feels like — limestone, limewash, salt-touched brass — so the palette is built from three colors, not a trend board: a warm limewash cream, a near-black Aegean indigo, and a brass accent used sparingly enough to still read as metal. Gambetta carries the display type for the same reason a hotel's own signage would use a serif with weight; Ranade handles the body copy because it stays legible at the small sizes a booking flow actually runs at.",
-      "The layout deliberately avoids the two moves every hotel template reaches for: a centered hero and a uniform photo grid. The masthead is a two-tone diptych — a 66/33 split, not the 60/40 every template ships with — because a magazine spread reads as edited, and a centered hero reads as a placeholder waiting for a photo. The room rows alternate left-right instead of stacking as identical cards, which is a small thing that stops the page from feeling machine-generated the moment you scroll past the first room.",
-    ],
-    build: [
-      "The actual mechanic — the reason this case exists — is the direct-booking ledger. Instead of a policy paragraph explaining that direct rates are better, the room card itself renders as a receipt: the OTA rate, struck through; the commission the hotel doesn't pay, as a credit line; the direct rate, totaled. It's the same information a hotel's finance team already has. The only work was deciding to show it to the guest.",
-      "The three room-view panels started as flat placeholder color — we caught that ourselves mid-build, because a flat gradient block reads as a missing photo, not a design choice. Each one is now a brass-framed illustration keyed to what that specific room actually looks onto — courtyard, courtyard-and-sea, open sea — built from the room copy itself rather than a stock photo that would've had to be licensed for a concept piece.",
-    ],
-    result: "+34% projected lift in direct bookings",
-  },
-  "castellane-partners": {
-    n: "02",
-    name: "Castellane Partners",
-    tag: "Concept work — M&A / advisory",
-    href: "/verazio/demos/castellane-partners.html",
-    hook: "The site that discloses nothing about its clients and closes the room anyway.",
-    brief:
-      "A discretion-first M&A advisory has an unusual problem: the things that build trust on every other advisory site — client logos, named deals, a case-study grid — are exactly what this client is contractually forbidden to show. We stopped treating that as a limitation and built the entire site around it instead.",
-    approach: [
-      "The palette reads like the inside of a physical dossier, because that's the metaphor the whole site runs on: graphite, bone-white, and a single stamp-red used only for \"Confidential\" marks. Erode carries the display type — it has the weight of a letterhead — and Fragment Mono handles every number and file reference, so a deal size or a file number reads the way it would typed on an actual document, not styled as marketing copy.",
-      "The hero is built as a dossier cover, not a stacked headline — a bordered \"file\" panel with a file number and a rotated Confidential stamp, sitting inside a hero that fakes almost nothing else. A repeating watermark pattern runs faintly behind it; we rebuilt that pattern this session after an earlier version rendered as one oversized, half-cropped word instead of an even repeating texture — the kind of detail that either reads as intentional or reads as broken, with nothing in between.",
-    ],
-    build: [
-      "The ledger is a wall of six \"tombstone\" transactions — sector, size, multiple, timeline — with the counterparty name replaced by an actual interaction: type your initials, and the mandate notes unseal with a verified timestamp, the same gesture a real NDA acknowledgment uses. It's a UI mechanic doing the job a legal disclaimer usually does badly.",
-      "Every numbered clause under \"What we advise on\" is written the way an engagement letter is written — §1, §2, §3 — because the audience for this kind of site reads contracts for a living, and a generic three-icon feature grid would have undercut the whole premise in one section.",
-    ],
-    result: "2.5x projected lift in qualified leads",
-  },
   prisma: {
-    n: "03",
+    n: "01",
     name: "Prisma",
     tag: "Concept work — creative collective",
     href: "/verazio/demos/prisma/index.html",
     hook: "A wordmark built to be the visual, not a caption sitting on top of one.",
+    image: "/verazio/case-studies/prisma-hero.jpg",
+    palette: [
+      { name: "Ink", hex: "#101010" },
+      { name: "Graphite card", hex: "#212121" },
+      { name: "Parchment", hex: "#DEDBC8" },
+      { name: "Warm ivory", hex: "#E1E0CC" },
+    ],
+    typography: "Almarai for every weight of the working type, Instrument Serif italic reserved for the one line that needs to read as a signature, not a heading.",
     brief:
       "A worldwide network of visual artists and filmmakers, and the same problem every creative collective site runs into: hero, grid, footer, indistinguishable from the last twenty portfolio templates a client has already scrolled past. If a site about visual craft doesn't prove craft in the first three seconds, the work underneath it never gets a fair look.",
     approach: [
@@ -83,11 +58,19 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     result: "Scroll-linked reveal, zero layout shift",
   },
   lumina: {
-    n: "04",
+    n: "02",
     name: "Lumina",
     tag: "Concept work — editorial footer system",
     href: "/verazio/demos/lumina/index.html",
     hook: "The footer that does the job most homepages give up on halfway through.",
+    image: "/verazio/case-studies/lumina-hero.jpg",
+    palette: [
+      { name: "Deep space", hex: "#161C2C" },
+      { name: "Cloud grey", hex: "#A9B0B8" },
+      { name: "Ember", hex: "#D98A4C" },
+      { name: "Moss", hex: "#2C3A28" },
+    ],
+    typography: "A plain system sans throughout, deliberately — the liquid-glass surfaces are already doing the visual work, and a display font on top would have competed with the video instead of framing it.",
     brief:
       "Every content-heavy site eventually hits the same afterthought: a gray strip of links at the bottom nobody actually designed. We asked what happens if that strip is treated with the same care as the hero — built substantial enough to work as a second homepage, without collapsing into the link-soup \"comprehensive\" usually produces.",
     approach: [
@@ -101,11 +84,19 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     result: "Liquid-glass UI kit, reusable across pages",
   },
   "vibrant-wellness": {
-    n: "05",
+    n: "03",
     name: "Vibrant Wellness",
     tag: "Concept work — wellness clinic",
     href: "/verazio/demos/vibrant-wellness/index.html",
     hook: "From landing on the page to booked in under a minute, without losing the warmth.",
+    image: "/verazio/case-studies/vibrant-wellness-hero.jpg",
+    palette: [
+      { name: "Periwinkle", hex: "#C8C6ED" },
+      { name: "Lavender grey", hex: "#C2BBD7" },
+      { name: "Cornflower", hex: "#8597DE" },
+      { name: "Bloom pink", hex: "#D067AE" },
+    ],
+    typography: "Inter, full-width, at weights soft enough not to fight the gradient — a clinical grotesque would have undone the warmth the palette is doing the work of building.",
     brief:
       "Booking a wellness consultation online usually feels like booking a dentist appointment — a clinical, multi-step form buried behind a menu. That's the wrong first impression for a brand selling warmth and trust before anything clinical happens. The brief was to compress \"landing on the page\" to \"booked\" into a single unbroken scroll.",
     approach: [
@@ -187,7 +178,21 @@ export default function CaseStudyPage() {
         </motion.a>
       </section>
 
-      <section className="px-5 sm:px-8 md:px-12 pb-20 md:pb-32 border-t border-black/10 pt-16 md:pt-20">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.6, ease: EASE }}
+        className="px-5 sm:px-8 md:px-12"
+      >
+        <img
+          src={study.image}
+          alt={`${study.name} — live build screenshot`}
+          className="w-full h-auto border border-black/10"
+          loading="lazy"
+        />
+      </motion.div>
+
+      <section className="px-5 sm:px-8 md:px-12 pb-20 md:pb-32 border-t border-black/10 pt-16 md:pt-20 mt-16 md:mt-24">
         <div className="grid md:grid-cols-[1fr_1.6fr] gap-8 md:gap-16 mb-16 md:mb-24">
           <motion.p
             variants={fadeUp}
@@ -208,6 +213,53 @@ export default function CaseStudyPage() {
           >
             {study.brief}
           </motion.p>
+        </div>
+
+        <div className="grid md:grid-cols-[1fr_1.6fr] gap-8 md:gap-16 mb-16 md:mb-24">
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-xs md:text-sm font-semibold tracking-widest uppercase text-black/40"
+          >
+            Design System
+          </motion.p>
+          <div>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              custom={1}
+              className="flex flex-wrap gap-4 mb-6"
+            >
+              {study.palette.map((c) => (
+                <div key={c.hex} className="flex items-center gap-2.5">
+                  <span
+                    className="w-9 h-9 rounded-full border border-black/10 shrink-0"
+                    style={{ backgroundColor: c.hex }}
+                  />
+                  <div className="leading-tight">
+                    <p className="text-xs font-semibold uppercase">{c.name}</p>
+                    <p className="text-[10px] font-medium text-black/40 uppercase tracking-wide">
+                      {c.hex}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              custom={2}
+              className="text-sm md:text-base normal-case tracking-normal font-medium leading-relaxed text-black/70"
+            >
+              {study.typography}
+            </motion.p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-[1fr_1.6fr] gap-8 md:gap-16 mb-16 md:mb-24">

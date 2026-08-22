@@ -195,18 +195,6 @@ const PROCESS = [
 
 const WORK = [
   {
-    name: "Hôtel Cendre",
-    tag: "Concept work — boutique hospitality",
-    result: "+34% projected lift in direct bookings",
-    href: "/verazio/demos/hotel-cendre.html",
-  },
-  {
-    name: "Castellane Partners",
-    tag: "Concept work — M&A / advisory",
-    result: "2.5x projected lift in qualified leads",
-    href: "/verazio/demos/castellane-partners.html",
-  },
-  {
     name: "Prisma",
     tag: "Concept work — creative collective",
     result: "Scroll-linked reveal, zero layout shift",
@@ -343,7 +331,7 @@ const FAQ = [
   },
   {
     q: "The portfolio says \"concept work\" — have you shipped for real clients?",
-    a: "We're a newly formed studio, and we're not going to dress that up: the five cases in our portfolio are concept builds we made ourselves to show range and craft, not client deliverables — each one says so on the page. What you're evaluating is the actual capability behind them, at full quality, before a single client brief has touched it.",
+    a: "We're a newly formed studio, and we're not going to dress that up: the cases in our portfolio are concept builds we made ourselves to show range and craft, not client deliverables — each one says so on the page. What you're evaluating is the actual capability behind them, at full quality, before a single client brief has touched it.",
   },
   {
     q: "Do you offer support after launch?",

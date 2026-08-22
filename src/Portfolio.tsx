@@ -18,28 +18,6 @@ const fadeUp: Variants = {
 const CASES = [
   {
     n: "01",
-    slug: "hotel-cendre",
-    name: "Hôtel Cendre",
-    tag: "Boutique hospitality",
-    problem:
-      "OTA commissions were quietly eating the margin on every booking, and guests had no way to see what booking direct actually saved them.",
-    approach:
-      "Built a live \"guest ledger\" that shows the OTA rate and the direct rate side by side, in the room card itself — not buried in a policy page.",
-    result: "+34% projected lift in direct bookings",
-  },
-  {
-    n: "02",
-    slug: "castellane-partners",
-    name: "Castellane Partners",
-    tag: "M&A / advisory",
-    problem:
-      "A discretion-first advisory firm needed a site that signaled seriousness without looking invisible — most advisory sites read as either flashy or forgettable.",
-    approach:
-      "Built a tombstone-wall of sealed mandates with a genuine NDA-style reveal gesture, instead of a generic case-study grid.",
-    result: "2.5x projected lift in qualified leads",
-  },
-  {
-    n: "03",
     slug: "prisma",
     name: "Prisma",
     tag: "Creative collective",
@@ -50,7 +28,7 @@ const CASES = [
     result: "Scroll-linked reveal, zero layout shift",
   },
   {
-    n: "04",
+    n: "02",
     slug: "lumina",
     name: "Lumina",
     tag: "Editorial footer system",
@@ -61,7 +39,7 @@ const CASES = [
     result: "Liquid-glass UI kit, reusable across pages",
   },
   {
-    n: "05",
+    n: "03",
     slug: "vibrant-wellness",
     name: "Vibrant Wellness",
     tag: "Wellness clinic",
@@ -105,7 +83,7 @@ export default function Portfolio() {
           className="mt-6 text-sm md:text-base normal-case tracking-normal font-medium text-black/60 max-w-xl"
         >
           Every case here is read the same way a brief is: what was broken,
-          what we built, what changed. All five are concept work — built by
+          what we built, what changed. All three are concept work — built by
           Verazio to demonstrate range, not delivered for a paying client.
         </motion.p>
       </section>
@@ -178,7 +156,7 @@ export default function Portfolio() {
             className="font-semibold uppercase leading-[0.95]"
             style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
           >
-            Want to be case 06?
+            Want to be case 04?
           </h2>
           <Link
             to="/#contact"
