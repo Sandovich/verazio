@@ -240,7 +240,7 @@ export default function Sections() {
             Work
           </h2>
           <a
-            href="/portfolio"
+            href="/verazio/portfolio"
             className="text-xs md:text-sm font-semibold tracking-widest uppercase text-accent flex items-center gap-1"
           >
             Full portfolio <ArrowUpRight className="w-4 h-4" />

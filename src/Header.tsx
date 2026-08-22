@@ -15,10 +15,10 @@ const fadeDown: Variants = {
 };
 
 const NAV_LINKS = [
-  { label: "Story", href: "/#about" },
-  { label: "Expertise", href: "/#services" },
-  { label: "Studios", href: "/#work" },
-  { label: "Feedback", href: "/#contact" },
+  { label: "Story", href: "/verazio/#about" },
+  { label: "Expertise", href: "/verazio/#services" },
+  { label: "Studios", href: "/verazio/#work" },
+  { label: "Feedback", href: "/verazio/#contact" },
 ];
 
 export function Logo({ className = "" }: { className?: string }) {
@@ -39,7 +39,7 @@ export default function Header({ animate = true }: { animate?: boolean }) {
     <>
       <nav className="relative z-10 flex items-center justify-between px-5 sm:px-8 md:px-12 pt-5 md:pt-6 font-sans uppercase tracking-widest font-semibold text-black">
         <motion.a
-          href="/"
+          href="/verazio/"
           variants={fadeDown}
           initial={initialState}
           animate="visible"
@@ -108,7 +108,7 @@ export default function Header({ animate = true }: { animate?: boolean }) {
           </div>
 
           <a
-            href="/#contact"
+            href="/verazio/#contact"
             className="mt-auto flex items-center gap-2 text-xl font-semibold text-accent uppercase tracking-widest"
           >
             Work With Us

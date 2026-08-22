@@ -134,7 +134,7 @@ export default function AiEthics() {
             </p>
           </div>
           <a
-            href="/#contact"
+            href="/verazio/#contact"
             className="flex items-center gap-2 bg-accent text-white font-semibold uppercase tracking-widest text-sm px-6 py-3 shrink-0"
           >
             Start a brief

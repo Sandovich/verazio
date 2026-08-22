@@ -179,7 +179,7 @@ export default function Portfolio() {
             Want to be case 06?
           </h2>
           <a
-            href="/#contact"
+            href="/verazio/#contact"
             className="flex items-center gap-2 bg-accent text-white font-semibold uppercase tracking-widest text-sm px-6 py-3"
           >
             Start a brief

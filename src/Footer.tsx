@@ -5,7 +5,7 @@ export default function Footer() {
       <span className="italic normal-case tracking-normal font-medium">
         Effective by design, good-looking as a consequence.
       </span>
-      <a href="/ai-ethics" className="hover:text-accent">
+      <a href="/verazio/ai-ethics" className="hover:text-accent">
         AI Ethics &amp; Compliance
       </a>
     </footer>
