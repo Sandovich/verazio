@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
+import { useMotionValue, useSpring } from "framer-motion";
 
 export function NumberTicker({
   value,
@@ -11,11 +11,15 @@ export function NumberTicker({
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, { damping: 60, stiffness: 90 });
-  const isInView = useInView(ref, { once: true, margin: "-40px" });
 
+  // This only ever renders inside the hero, above the fold on every
+  // viewport — no scroll-triggered useInView gate here, since a tight
+  // mobile flex row (three stats squeezed under justify-end) can put the
+  // last item's box right at the intersection-root edge and leave it
+  // permanently "not in view" while its siblings animate fine.
   useEffect(() => {
-    if (isInView) motionValue.set(value);
-  }, [motionValue, isInView, value]);
+    motionValue.set(value);
+  }, [motionValue, value]);
 
   useEffect(
     () =>

@@ -387,14 +387,17 @@ export default function Sections() {
 
       {/* SERVICES */}
       <section id="services" className="px-5 sm:px-8 md:px-12 py-20 md:py-32 border-t border-black/10">
-        <Reveal className="flex items-baseline justify-between mb-12 md:mb-20">
+        <Reveal className="flex items-start md:items-baseline justify-between mb-12 md:mb-20">
           <h2
-            className="font-semibold uppercase"
+            className="font-semibold uppercase leading-tight"
             style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
           >
-            What we build: <TextLoop items={SERVICES.map((s) => s.title)} />
+            <span className="block md:inline">What we build:</span>{" "}
+            <span className="block md:inline min-h-[2.6em] md:min-h-0 leading-tight">
+              <TextLoop items={SERVICES.map((s) => s.title)} />
+            </span>
           </h2>
-          <span className="text-xs md:text-sm font-semibold tracking-widest text-black/50">
+          <span className="shrink-0 whitespace-nowrap text-xs md:text-sm font-semibold tracking-widest text-black/50">
             01 / 03
           </span>
         </Reveal>
