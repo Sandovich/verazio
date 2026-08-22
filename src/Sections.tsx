@@ -252,13 +252,6 @@ const WORK = [
     image: "/verazio/case-studies/cadence-hero.jpg",
   },
   {
-    name: "Kessler",
-    tag: "Concept work — independent strategist",
-    result: "Warm editorial register, zero visual overlap with Cadence",
-    href: "/verazio/demos/kessler/index.html",
-    image: "/verazio/case-studies/kessler-hero.jpg",
-  },
-  {
     name: "Rae Calder",
     tag: "Concept work — developer portfolio",
     result: "Brutalist type system, zero dead links",

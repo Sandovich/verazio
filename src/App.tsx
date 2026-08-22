@@ -11,6 +11,22 @@ import Journal from "./Journal";
 import JournalPost from "./JournalPost";
 import Team from "./Team";
 
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    // Client-side route changes don't reset scroll position the way a full
+    // page load does, so a navigation from deep in a long page (e.g. the
+    // "Full portfolio" link from partway down the homepage) lands on the
+    // new page at the old scroll offset instead of the top. Hash links are
+    // left alone — Home's own effect (or the browser) handles those.
+    if (hash) return;
+    window.scrollTo(0, 0);
+  }, [pathname, hash]);
+
+  return null;
+}
+
 function Home() {
   const { hash } = useLocation();
 
@@ -38,6 +54,7 @@ function Home() {
 function App() {
   return (
     <BrowserRouter basename="/verazio">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />

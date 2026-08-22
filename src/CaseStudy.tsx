@@ -135,34 +135,8 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     result: "52-week deploy heatmap, zero fabricated data",
   },
-  kessler: {
-    n: "05",
-    name: "Kessler",
-    tag: "Concept work — independent strategist",
-    href: "/verazio/demos/kessler/index.html",
-    hook: "A dossier, not a void — proof of practice on warm paper instead of another dark terminal.",
-    image: "/verazio/case-studies/kessler-hero.jpg",
-    palette: [
-      { name: "Paper", hex: "#F2F1EA" },
-      { name: "Ink", hex: "#211408" },
-      { name: "Ink muted", hex: "#7A6F60" },
-      { name: "Oxide red", hex: "#A23B2E" },
-    ],
-    typography: "Fraunces for the display type — a warm, editorial serif with real personality — paired with Manrope for body copy and JetBrains Mono reserved strictly for numbers and labels, so figures read as data rather than decoration.",
-    brief:
-      "An independent brand strategist needed a personal site that could carry a pitch, a work history, and writing samples on a single page without the ask getting buried under a mile of scroll — and, after an earlier pass read as too close to Cadence's dark dev-tool register, one built in a genuinely different visual language: light instead of dark, editorial instead of terminal, warm instead of neon.",
-    approach: [
-      "The whole page runs on warm paper rather than a void — off-white background, a single committed oxide-red accent, Fraunces serif for anything that needs presence. A cursor-reactive spotlight and a subtle 3D tilt on the hero type stand in for the earlier build's canvas scan line, so the page still feels attentive to the visitor without borrowing Cadence's terminal vocabulary.",
-      "Navigation moved from a sticky sidebar to a sticky top bar with a magnetic pill that slides between links on hover — a different navigational shape entirely, not just a recolor. Work and the key facts (years in practice, industries, typical engagement length) now render as a bento grid with oversized serif numerals instead of a plain list, giving the page more structural variety.",
-    ],
-    build: [
-      "The facts strip animates in with a real count-up on the numbers, and each Writing entry gets a small circular read-time ring instead of a bare '6 min' label — both genuine data-driven components, not decorative filler.",
-      "The mobile nav initially shipped as a simple `hidden md:block`, with real content and no dead link, but with no fallback for phones — verified and fixed with a proper full-screen mobile menu before shipping, matching the pattern used on the main Verazio site.",
-    ],
-    result: "Warm editorial register, zero visual overlap with Cadence",
-  },
   devfolio: {
-    n: "06",
+    n: "05",
     name: "Rae Calder",
     tag: "Concept work — developer portfolio",
     href: "/verazio/demos/devfolio/index.html",

@@ -62,17 +62,6 @@ const CASES = [
   },
   {
     n: "05",
-    slug: "kessler",
-    name: "Kessler",
-    tag: "Independent strategist",
-    problem:
-      "A solo consultant's site has to carry a personal pitch, a work history, and writing samples on one page — and an earlier version of this case read too close to Cadence's dark dev-tool register to work as a distinct example.",
-    approach:
-      "A warm-paper editorial register instead: Fraunces serif, a single oxide-red accent, a magnetic top nav, and a bento fact grid in place of the dark void-and-scan-line look.",
-    result: "Warm editorial register, zero visual overlap with Cadence",
-  },
-  {
-    n: "06",
     slug: "devfolio",
     name: "Rae Calder",
     tag: "Developer portfolio",
@@ -116,7 +105,7 @@ export default function Portfolio() {
           className="mt-6 text-sm md:text-base normal-case tracking-normal font-medium text-black/60 max-w-xl"
         >
           Every case here is read the same way a brief is: what was broken,
-          what we built, what changed. All six are concept work — built by
+          what we built, what changed. All five are concept work — built by
           Verazio to demonstrate range, not delivered for a paying client.
         </motion.p>
       </section>
@@ -189,7 +178,7 @@ export default function Portfolio() {
             className="font-semibold uppercase leading-[0.95]"
             style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
           >
-            Want to be case 07?
+            Want to be case 06?
           </h2>
           <Link
             to="/contact"
