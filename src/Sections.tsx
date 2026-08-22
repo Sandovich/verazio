@@ -1,5 +1,5 @@
 import { motion, useInView, type Variants } from "framer-motion";
-import { ArrowUpRight, Globe, Rocket, Presentation } from "lucide-react";
+import { ArrowUpRight, Globe, Rocket, Presentation, Plus } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
@@ -226,6 +226,74 @@ const WORK = [
   },
 ];
 
+const FAQ = [
+  {
+    q: "How long does a project actually take?",
+    a: "Most websites: 1 to 3 weeks from an approved brief to a live asset. Landing pages usually land at the shorter end of that; a heavier multi-page site or one with custom interactions can run longer — we'll tell you which before you commit, not after.",
+  },
+  {
+    q: "What does the process look like, step by step?",
+    a: "Diagnose, Build, Measure, Iterate — the same four steps in the \"How we work\" section above, not marketing language for something looser. Diagnose ends with a scoped brief you approve before any building starts. Build ends with a live, working asset. Nothing ships without you seeing it first.",
+  },
+  {
+    q: "How many rounds of revisions are included?",
+    a: "Two structured revision rounds are built into every project by default — you'll see a live draft, give one consolidated pass of feedback, see the update, and confirm. Larger changes in scope (a new section, a different structure) are handled as a separate scoped addition, not squeezed into a \"revision.\"",
+  },
+  {
+    q: "Who owns the site and the files once it's done?",
+    a: "You do — full transfer of the final code, assets, and any custom components on delivery. There's no ongoing license fee to keep using what we built you, and no dependency on us remaining your host or dev team unless you want that.",
+  },
+  {
+    q: "What determines the price?",
+    a: "Scope, not hours: number of pages/sections, how custom the interactions are, and whether copy and content strategy are part of the brief or supplied by you. You get a fixed quote after the Diagnose step, before Build starts — no open-ended retainer, no surprise invoice at the end.",
+  },
+  {
+    q: "Is this just AI-generated, or does a person actually work on it?",
+    a: "A senior person owns your brief end to end — the same one from the first call through delivery. AI is what makes the 1-to-3-week timeline possible; it isn't what makes the decisions. Every layout, every line of copy, every interaction gets a human judgment call before it ships.",
+  },
+  {
+    q: "The portfolio says \"concept work\" — have you shipped for real clients?",
+    a: "We're a newly formed studio, and we're not going to dress that up: the five cases in our portfolio are concept builds we made ourselves to show range and craft, not client deliverables — each one says so on the page. What you're evaluating is the actual capability behind them, at full quality, before a single client brief has touched it.",
+  },
+  {
+    q: "Do you offer support after launch?",
+    a: "Yes, scoped the same way everything else is: a fixed-price maintenance window if you want us on call for the first month or two after launch, or pay-as-you-go for specific changes later. Nothing recurring you didn't explicitly sign up for.",
+  },
+];
+
+function FAQItem({ item, i }: { item: (typeof FAQ)[number]; i: number }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Reveal custom={i}>
+      <div className="border-b border-black/10">
+        <button
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          className="w-full flex items-center justify-between gap-6 py-6 md:py-7 text-left"
+        >
+          <span className="font-semibold uppercase text-base md:text-lg">
+            {item.q}
+          </span>
+          <Plus
+            className="w-5 h-5 shrink-0 text-accent transition-transform duration-300"
+            style={{ transform: open ? "rotate(45deg)" : "none" }}
+          />
+        </button>
+        <div
+          className="grid transition-[grid-template-rows] duration-300 ease-out"
+          style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
+        >
+          <div className="overflow-hidden">
+            <p className="pb-6 md:pb-7 max-w-2xl text-sm normal-case tracking-normal font-medium leading-relaxed text-black/70">
+              {item.a}
+            </p>
+          </div>
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
 export default function Sections() {
   return (
     <div className="bg-white text-black font-sans">
@@ -269,6 +337,15 @@ export default function Sections() {
               without the variance of a freelance marketplace. Either way,
               we're judged on the same thing you are — what the finished
               product does for the business.
+            </p>
+            <p className="text-sm md:text-base normal-case tracking-normal font-medium leading-relaxed text-black/70">
+              "AI-native" doesn't mean a prompt and a export. AI changes how
+              fast a senior team can move — it doesn't replace the judgment
+              that decides what to build, why a page is laid out the way it
+              is, or when a generated asset isn't good enough to ship. Every
+              brief still gets a human decision-maker end to end; AI is the
+              part of the pipeline that used to cost you weeks, not the part
+              that used to require someone who knew what they were doing.
             </p>
           </Reveal>
         </div>
@@ -386,6 +463,27 @@ export default function Sections() {
                 </p>
               </a>
             </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="px-5 sm:px-8 md:px-12 py-20 md:py-32 border-t border-black/10">
+        <Reveal className="mb-12 md:mb-20">
+          <p className="text-xs md:text-sm font-semibold tracking-widest uppercase text-accent mb-3">
+            FAQ
+          </p>
+          <h2
+            className="font-semibold uppercase leading-[0.95]"
+            style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
+          >
+            Questions worth answering upfront.
+          </h2>
+        </Reveal>
+
+        <div className="border-t border-black/10">
+          {FAQ.map((item, i) => (
+            <FAQItem key={item.q} item={item} i={i} />
           ))}
         </div>
       </section>
