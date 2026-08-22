@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 import Header from "./Header";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -23,12 +24,51 @@ const HEADING_WORDS = ["Fearless", "Vision", "Delivered"];
 
 // Self-hosted, re-encoded from the original CloudFront asset: 3828x2164 /
 // 17.5 Mbps / 22MB was heavy enough that playback could outrun buffering
-// and visibly stall right at the loop point. Re-encoded to 1920px wide /
-// ~1.8 Mbps / ~2.2MB (libx264, crf 26) — same look, ~10x smaller, loops
-// cleanly once buffered.
+// and visibly stall right at the loop point. Re-encoded to 2560px wide /
+// libx264 crf 18 / ~8MB (visually equivalent, ~2.75x smaller) — buffers
+// fully in under 2s and loops cleanly.
 const VIDEO_URL = "/verazio/video/hero-loop.mp4";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // autoPlay is not a guarantee — a browser can decline it (autoplay
+    // heuristics, a stalled first fetch, the tab being backgrounded during
+    // load) and leaves the video sitting on frame 1 with its native paused
+    // state, which is what showed up as "sometimes it's just stopped with a
+    // play triangle on it". Nothing in the page ever calls .pause() itself,
+    // so any pause is unintended — retry playback whenever it happens, and
+    // again when the tab regains visibility.
+    const tryPlay = () => {
+      video.play().catch(() => {
+        // Playback can be legitimately refused (e.g. still buffering) —
+        // the 'canplay'/'visibilitychange' listeners below retry later.
+      });
+    };
+
+    const onPause = () => {
+      if (!document.hidden) tryPlay();
+    };
+    const onVisible = () => {
+      if (!document.hidden && video.paused) tryPlay();
+    };
+
+    video.addEventListener("pause", onPause);
+    video.addEventListener("canplay", tryPlay);
+    document.addEventListener("visibilitychange", onVisible);
+    tryPlay();
+
+    return () => {
+      video.removeEventListener("pause", onPause);
+      video.removeEventListener("canplay", tryPlay);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
+  }, []);
+
   return (
     <div className="relative min-h-screen w-full font-sans uppercase tracking-widest font-semibold text-black overflow-hidden">
       {/* BACKGROUND VIDEO — the sculpture sits left-of-center in the source
@@ -38,6 +78,7 @@ export default function Hero() {
           visible; the wide desktop frame already shows nearly the whole shot
           at center. */}
       <video
+        ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover object-[28%_center] md:object-center"
         src={VIDEO_URL}
         autoPlay
