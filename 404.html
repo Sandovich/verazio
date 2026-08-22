@@ -3,16 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <title>Verazio</title>
-    <script>
-      // GitHub Pages SPA redirect trick (static host has no server-side routing,
-      // so a deep link like /portfolio 404s here — bounce it back through
-      // index.html with the real path encoded in a query param).
-      var segmentCount = 1;
+    <script type="text/javascript">
+      // GitHub Pages SPA redirect trick (rafgraph/spa-github-pages) — static
+      // host has no server-side routing, so a deep link like /portfolio 404s
+      // here. Bounce it back through index.html with the real path encoded
+      // in the query string, then index.html's decoder restores it before
+      // React Router ever sees the URL.
+      var pathSegmentsToKeep = 1;
       var l = window.location;
       l.replace(
-        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
-        l.pathname.split("/").slice(0, 1 + segmentCount).join("/") + "/?p=" +
-        l.pathname.slice(1) + (l.search ? "&q=" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
         l.hash
       );
     </script>
