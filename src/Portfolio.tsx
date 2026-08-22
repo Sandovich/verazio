@@ -49,6 +49,17 @@ const CASES = [
       "Liquid-glass badges, a real human avatar strip, and a single-scroll path from hero straight to \"Begin Your Journey.\"",
     result: "Sub-60s booking flow from hero to form",
   },
+  {
+    n: "04",
+    slug: "cadence",
+    name: "Cadence",
+    tag: "Dev-tools SaaS",
+    problem:
+      "Uptime dashboards tell you the system didn't break — they don't tell you whether the team is actually shipping, which is the number engineering leads actually want at standup.",
+    approach:
+      "A 52-week deploy heatmap and a traced deploy timeline instead of another vanity-metric widget, in a dark dev-tool register most of Verazio's other work deliberately isn't in.",
+    result: "52-week deploy heatmap, zero fabricated data",
+  },
 ];
 
 export default function Portfolio() {
@@ -83,7 +94,7 @@ export default function Portfolio() {
           className="mt-6 text-sm md:text-base normal-case tracking-normal font-medium text-black/60 max-w-xl"
         >
           Every case here is read the same way a brief is: what was broken,
-          what we built, what changed. All three are concept work — built by
+          what we built, what changed. All four are concept work — built by
           Verazio to demonstrate range, not delivered for a paying client.
         </motion.p>
       </section>
@@ -156,7 +167,7 @@ export default function Portfolio() {
             className="font-semibold uppercase leading-[0.95]"
             style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
           >
-            Want to be case 04?
+            Want to be case 05?
           </h2>
           <Link
             to="/contact"

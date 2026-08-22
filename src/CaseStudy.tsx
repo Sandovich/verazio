@@ -109,6 +109,32 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     result: "Sub-60s booking flow from hero to form",
   },
+  cadence: {
+    n: "04",
+    name: "Cadence",
+    tag: "Concept work — dev-tools SaaS",
+    href: "/verazio/demos/cadence/index.html",
+    hook: "One honest number for \"are we actually shipping,\" not another uptime widget.",
+    image: "/verazio/case-studies/cadence-hero.jpg",
+    palette: [
+      { name: "Void", hex: "#0A0A0D" },
+      { name: "Terminal green", hex: "#0AD68B" },
+      { name: "Warning amber", hex: "#F59E0B" },
+      { name: "Panel white", hex: "#FFFFFF" },
+    ],
+    typography: "Inter for every UI label and heading; monospace reserved for anything that's actually a number or a timestamp — a deliberate split so data reads as data, not as decorated copy.",
+    brief:
+      "Engineering leads already have an uptime dashboard. What they don't have is an honest answer to \"is the team actually shipping\" without digging through a dozen tabs before standup. The brief: one screen, one real metric, no vanity number dressed up as insight.",
+    approach: [
+      "Every other Verazio case so far reads warm — limewash, gradients, glass. Cadence deliberately doesn't: near-black void, a single terminal-green accent, monospace for anything numeric. The register has to match the audience — an engineering lead evaluating a dev tool trusts a dashboard that looks like the terminal they already live in, not a marketing site.",
+      "The structural idea came from a real developer's personal site (victoreke.com, checked and confirmed MIT-licensed before anything was adapted from it) — a GitHub-style contribution heatmap. We rebuilt the mechanic from scratch as a deploy-activity heatmap rather than copying any code, because it's a genuinely honest way to show output over time without inventing specific client data.",
+    ],
+    build: [
+      "The heatmap and the deploy timeline are both real, working components — a seeded pseudo-random generator for the heatmap (so it renders the same believable pattern every load instead of reshuffling), and a traced timeline with status icons for each deploy. No fabricated client logos or testimonials anywhere on the page, consistent with every other concept case here.",
+      "Added a decorative \"System Watch\" panel built as an actual from-scratch Canvas2D reimplementation of a grid-sample-and-render effect (the mechanic behind ascii/dither art tools) — not fed a real photo, since none was available, so what's rendering is a procedurally generated pulsing pattern. The primary CTA uses a WebGL liquid-metal shader via the open-source @paper-design/shaders package, Apache-2.0 licensed and used exactly as its public API intends.",
+    ],
+    result: "52-week deploy heatmap, zero fabricated data",
+  },
 };
 
 export default function CaseStudyPage() {

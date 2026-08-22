@@ -241,6 +241,13 @@ const WORK = [
     href: "/verazio/demos/vibrant-wellness/index.html",
     image: "/verazio/case-studies/vibrant-wellness-hero.jpg",
   },
+  {
+    name: "Cadence",
+    tag: "Concept work — dev-tools SaaS",
+    result: "52-week deploy heatmap, zero fabricated data",
+    href: "/verazio/demos/cadence/index.html",
+    image: "/verazio/case-studies/cadence-hero.jpg",
+  },
 ];
 
 const FAQ = [
