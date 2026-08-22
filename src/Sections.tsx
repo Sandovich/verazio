@@ -72,13 +72,12 @@ const STACK = [
 ];
 
 function StackMarquee() {
-  const items = [...STACK, ...STACK];
   return (
     <div className="border-t border-black/10 py-5 overflow-hidden">
       <div className="flex w-max animate-marquee">
         {[0, 1].map((copy) => (
           <div key={copy} className="flex items-center shrink-0" aria-hidden={copy === 1}>
-            {items.map((item, i) => (
+            {STACK.map((item, i) => (
               <span
                 key={`${copy}-${item}-${i}`}
                 className="flex items-center text-xs md:text-sm font-semibold tracking-widest uppercase text-black/40 px-6 whitespace-nowrap"
