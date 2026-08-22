@@ -143,23 +143,23 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     hook: "A portfolio that reads like a spec sheet, not a mood board.",
     image: "/verazio/case-studies/devfolio-hero.jpg",
     palette: [
-      { name: "Paper", hex: "#F2F1EA" },
-      { name: "Ink", hex: "#101010" },
-      { name: "Soft grey", hex: "#4A4A46" },
-      { name: "Signal lime", hex: "#D7FF3F" },
+      { name: "Void", hex: "#111111" },
+      { name: "Grey", hex: "#AAAAAA" },
+      { name: "Boulder", hex: "#777777" },
+      { name: "Signal orange", hex: "#CB450C" },
     ],
-    typography: "Archivo at heavy weights for anything structural — the hero, project titles, the marquee — with IBM Plex Mono for every label and rule, so the mono type reads as the system's grid rather than decoration.",
+    typography: "Bebas Neue at enormous scale for every headline — the hero, project titles, the marquee — paired with Open Sauce One for everything else, so the huge condensed display type reads as the site's whole personality rather than a one-off hero moment.",
     brief:
-      "Developer portfolios tend to converge on the same soft, card-grid template — rounded corners, pastel gradients, an icon per skill. This one takes its structural cues from a specific real-world reference (a well-known brutalist developer portfolio) rather than a generic template — same rhythm of dash-rule dividers, dramatic compound-word hero, and a dense section-by-section index — rebuilt with an entirely original fictional persona, copy, and code rather than reused verbatim.",
+      "Developer portfolios tend to converge on the same soft, card-grid template — rounded corners, pastel gradients, an icon per skill. This one instead follows a specific real-world reference closely in structure and register — a well-known dark, typography-first developer portfolio — matched section by section and down to the actual color values and font choices, rebuilt entirely from scratch with an original fictional persona, copy, and code rather than any reused assets.",
     approach: [
-      "The hero splits a compound job title — \"Full-Stack Developer\" — across three oversized lines, using the natural word break (\"Full\" / \"— Stack\" / \"Developer\") as the same kind of layered, dash-separated typographic device the reference is known for, instead of a hero image or 3D object.",
-      "The page runs the same section rhythm as the reference end to end — About with an inline list of (fictional) recent collaborators, Selected Work as a numbered index rather than a card grid, a Recognition section, an Interests line, a personality-driven Icebreakers block, then the marquee CTA — each one separated by the same dash-rule divider.",
+      "The hero splits a compound job title — \"Full-Stack Developer\" — across two rows the same way the reference splits its own compound title: \"Full\" opposite \"— Stack\" on one row, \"Developer\" beside an About paragraph on the next, all in room-filling Bebas Neue with a single orange dash as the only color accent.",
+      "Selected Work alternates each project's giant title left and right down the page instead of a card grid, and the lower half splits into the same two-column shape as the reference: a bordered Recognition list on the left, stacked Interests and Icebreakers blocks on the right.",
     ],
     build: [
-      "A monospace dash-rule (`repeating-linear-gradient`) stands in for the horizontal rules and code-like dividers running through the whole page — built as a single reusable component rather than a one-off border style.",
-      "The closing marquee cycles four phrases through a genuine seamless CSS loop — content duplicated once, track translated exactly -50%, so it tiles with no visible seam. The footer email is real copy-to-clipboard, not a mailto dead end. No fictional 'visit project' links point anywhere real — the four projects are clearly fictional and unlinked rather than pointing at dead URLs, and any recognition/awards copy is deliberately generic rather than naming real award bodies for a fake win.",
+      "The palette and type scale are pulled directly from the reference's own source (colors, font names, the dark-mode-by-default background) rather than approximated from a screenshot — checked against the actual CSS rather than guessed.",
+      "The closing marquee is a genuine seamless CSS loop, and the footer email uses real copy-to-clipboard with a status label, plus a live local-time readout — a functioning detail, not a static mock. No fictional 'visit project' links point anywhere real, and the Recognition copy stays deliberately generic rather than naming real award bodies for a fabricated win.",
     ],
-    result: "Brutalist type system, zero dead links",
+    result: "Room-filling type system, zero dead links",
   },
 };
 

@@ -68,8 +68,8 @@ const CASES = [
     problem:
       "A developer's personal site needed to read as confident and technical at a glance, without leaning on the same soft gradients and card grids every other portfolio uses.",
     approach:
-      "A brutalist, high-contrast system instead — layered dash typography, a monospace rule grid, and a plain numbered project index in place of icon-and-card tiles.",
-    result: "Brutalist type system, zero dead links",
+      "A dark, room-filling Bebas Neue type system matched closely to a specific real reference — huge alternating project titles, a bordered recognition list, and a seamless marquee CTA in place of icon-and-card tiles.",
+    result: "Room-filling type system, zero dead links",
   },
 ];
 

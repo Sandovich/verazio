@@ -254,7 +254,7 @@ const WORK = [
   {
     name: "Rae Calder",
     tag: "Concept work — developer portfolio",
-    result: "Brutalist type system, zero dead links",
+    result: "Room-filling type system, zero dead links",
     href: "/verazio/demos/devfolio/index.html",
     image: "/verazio/case-studies/devfolio-hero.jpg",
   },
