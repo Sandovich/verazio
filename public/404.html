@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Verazio</title>
+    <script>
+      // GitHub Pages SPA redirect trick (static host has no server-side routing,
+      // so a deep link like /portfolio 404s here — bounce it back through
+      // index.html with the real path encoded in a query param).
+      var segmentCount = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+        l.pathname.split("/").slice(0, 1 + segmentCount).join("/") + "/?p=" +
+        l.pathname.slice(1) + (l.search ? "&q=" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
