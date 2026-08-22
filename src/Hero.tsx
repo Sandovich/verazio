@@ -50,8 +50,11 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
 
-        {/* STATS ROW */}
-        <div className="flex-1 flex items-center justify-end px-5 sm:px-8 md:px-12 py-8 md:py-0">
+        {/* STATS ROW — pinned to the top on mobile, since the sculpture fills
+            most of the mid-screen there and would otherwise cut through the
+            numbers; vertically centered at md+ where there's clear space
+            beside it. */}
+        <div className="flex-1 flex items-start md:items-center justify-end px-5 sm:px-8 md:px-12 py-8 md:py-0">
           <div className="flex gap-5 sm:gap-8 md:gap-10">
             {STATS.map((stat, i) => (
               <motion.div
