@@ -261,7 +261,34 @@ h1, h2, h3, h4 {
 .hc-room-row p { margin-top: 0.5rem; color: var(--hc-indigo-text-soft); max-width: 42ch; }
 .hc-room-row__price { margin-top: 1rem; font-variant-numeric: tabular-nums; font-size: var(--hc-fs-1); color: var(--hc-brass-dark); }
 .hc-room-row__price span { font-family: var(--hc-f-body); font-size: 0.68rem; color: var(--hc-indigo-text-soft); text-transform: uppercase; letter-spacing: 0.08em; }
-.hc-room-row__swatch { height: 190px; border-radius: 999px 999px 4px 4px; background: linear-gradient(160deg, var(--hc-indigo), #2a3050); opacity: 0.92; }
+/* Room "view" panel — a stylized arch window, not a literal room photo (none
+   was shot for this concept build). Each room gets its own gradient tied to
+   what the copy actually says it looks onto, a brass frame line to read as
+   glass/architecture rather than a stray color block, the same grain used
+   site-wide so it doesn't sit flat against the paper, and a small caption so
+   it reads as a deliberate view illustration, not a missing image. */
+.hc-room-row__swatch {
+  height: 190px; border-radius: 999px 999px 4px 4px;
+  position: relative; overflow: hidden;
+  border: 1px solid var(--hc-brass);
+  box-shadow: inset 0 0 0 5px var(--hc-limewash);
+}
+.hc-room-row__swatch::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+.hc-room-row__swatch-tag {
+  position: absolute; left: 1rem; bottom: 0.85rem;
+  font-family: var(--hc-f-body); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--hc-limewash);
+}
+.hc-room-row__swatch--courtyard { background: linear-gradient(155deg, #D8CDA0 0%, #A9AE68 55%, #6E7A45 100%); }
+.hc-room-row__swatch--suite { background: linear-gradient(115deg, #EFEAE0 0%, #D8CDA0 42%, var(--hc-indigo) 58%, #232a4a 100%); }
+.hc-room-row__swatch--rooftop { background: linear-gradient(180deg, #3a4270 0%, var(--hc-indigo) 55%, #0d0f1c 100%); }
+.hc-room-row__swatch--rooftop::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 52%; height: 1px; background: var(--hc-brass); opacity: 0.6;
+}
 @media (max-width: 860px) { .hc-room-row__swatch { height: 130px; } }
 
 /* --- Sign-off: a small framed "visiting card" floating in a dark field —
