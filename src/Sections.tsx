@@ -70,31 +70,31 @@ const WORK = [
     name: "Hôtel Cendre",
     tag: "Concept work — boutique hospitality",
     result: "+34% projected lift in direct bookings",
-    href: "/demos/hotel-cendre.html",
+    href: "/verazio/demos/hotel-cendre.html",
   },
   {
     name: "Castellane Partners",
     tag: "Concept work — M&A / advisory",
     result: "2.5x projected lift in qualified leads",
-    href: "/demos/castellane-partners.html",
+    href: "/verazio/demos/castellane-partners.html",
   },
   {
     name: "Prisma",
     tag: "Concept work — creative collective",
     result: "Scroll-linked reveal, zero layout shift",
-    href: "/demos/prisma/index.html",
+    href: "/verazio/demos/prisma/index.html",
   },
   {
     name: "Lumina",
     tag: "Concept work — editorial footer system",
     result: "Liquid-glass UI kit, reusable across pages",
-    href: "/demos/lumina/index.html",
+    href: "/verazio/demos/lumina/index.html",
   },
   {
     name: "Vibrant Wellness",
     tag: "Concept work — wellness clinic",
     result: "Sub-60s booking flow from hero to form",
-    href: "/demos/vibrant-wellness/index.html",
+    href: "/verazio/demos/vibrant-wellness/index.html",
   },
 ];
 

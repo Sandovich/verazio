@@ -25,7 +25,7 @@ const CASES = [
     approach:
       "Built a live \"guest ledger\" that shows the OTA rate and the direct rate side by side, in the room card itself — not buried in a policy page.",
     result: "+34% projected lift in direct bookings",
-    href: "/demos/hotel-cendre.html",
+    href: "/verazio/demos/hotel-cendre.html",
   },
   {
     n: "02",
@@ -36,7 +36,7 @@ const CASES = [
     approach:
       "Built a tombstone-wall of sealed mandates with a genuine NDA-style reveal gesture, instead of a generic case-study grid.",
     result: "2.5x projected lift in qualified leads",
-    href: "/demos/castellane-partners.html",
+    href: "/verazio/demos/castellane-partners.html",
   },
   {
     n: "03",
@@ -47,7 +47,7 @@ const CASES = [
     approach:
       "Scroll-linked letter reveals, video-native feature cards, and a giant type-led hero that treats the wordmark itself as the visual.",
     result: "Scroll-linked reveal, zero layout shift",
-    href: "/demos/prisma/index.html",
+    href: "/verazio/demos/prisma/index.html",
   },
   {
     n: "04",
@@ -58,7 +58,7 @@ const CASES = [
     approach:
       "Built the liquid-glass footer as its own composable pattern — reusable across page types, not a one-off.",
     result: "Liquid-glass UI kit, reusable across pages",
-    href: "/demos/lumina/index.html",
+    href: "/verazio/demos/lumina/index.html",
   },
   {
     n: "05",
@@ -69,7 +69,7 @@ const CASES = [
     approach:
       "Liquid-glass badges, a real human avatar strip, and a single-scroll path from hero straight to \"Begin Your Journey.\"",
     result: "Sub-60s booking flow from hero to form",
-    href: "/demos/vibrant-wellness/index.html",
+    href: "/verazio/demos/vibrant-wellness/index.html",
   },
 ];
 
