@@ -176,14 +176,14 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     typography: "Archivo at heavy weights for anything structural — the hero, project titles, the marquee — with IBM Plex Mono for every label and rule, so the mono type reads as the system's grid rather than decoration.",
     brief:
-      "Developer portfolios tend to converge on the same soft, card-grid template — rounded corners, pastel gradients, an icon per skill. A developer site can afford to look more like the work it's selling: opinionated, high-contrast, unapologetically typographic. The brief was to build one that reads as confident and technical on sight, not just in the code underneath it.",
+      "Developer portfolios tend to converge on the same soft, card-grid template — rounded corners, pastel gradients, an icon per skill. This one takes its structural cues from a specific real-world reference (a well-known brutalist developer portfolio) rather than a generic template — same rhythm of dash-rule dividers, dramatic compound-word hero, and a dense section-by-section index — rebuilt with an entirely original fictional persona, copy, and code rather than reused verbatim.",
     approach: [
-      "The hero splits the title across two oversized lines with a row of extended dashes standing in for the gap between them — a layered, almost glitchy typographic device instead of a hero image or 3D object. At this scale the dashes read as bold horizontal marks in their own right, not punctuation.",
-      "Work is presented as a plain numbered index — row, number, title, category, one line of context — rather than a card grid with thumbnails. For a portfolio about craft and code, density and restraint read as more credible than another polished tile grid.",
+      "The hero splits a compound job title — \"Full-Stack Developer\" — across three oversized lines, using the natural word break (\"Full\" / \"— Stack\" / \"Developer\") as the same kind of layered, dash-separated typographic device the reference is known for, instead of a hero image or 3D object.",
+      "The page runs the same section rhythm as the reference end to end — About with an inline list of (fictional) recent collaborators, Selected Work as a numbered index rather than a card grid, a Recognition section, an Interests line, a personality-driven Icebreakers block, then the marquee CTA — each one separated by the same dash-rule divider.",
     ],
     build: [
-      "A monospace dash-rule (`repeating-linear-gradient`) stands in for the horizontal rules and code-like dividers common to this genre of site — built as a single reusable component rather than a one-off border style.",
-      "The closing marquee (\"Let's talk — Let's collaborate\") is a genuine seamless CSS loop — the content is duplicated once and the track translates exactly -50%, so it tiles with no visible seam or reset, unlike a naive scroll that jumps at the loop point. No 'visit project' links point anywhere fictional — the four projects are clearly fictional and unlinked rather than pointing at dead URLs.",
+      "A monospace dash-rule (`repeating-linear-gradient`) stands in for the horizontal rules and code-like dividers running through the whole page — built as a single reusable component rather than a one-off border style.",
+      "The closing marquee cycles four phrases through a genuine seamless CSS loop — content duplicated once, track translated exactly -50%, so it tiles with no visible seam. The footer email is real copy-to-clipboard, not a mailto dead end. No fictional 'visit project' links point anywhere real — the four projects are clearly fictional and unlinked rather than pointing at dead URLs, and any recognition/awards copy is deliberately generic rather than naming real award bodies for a fake win.",
     ],
     result: "Brutalist type system, zero dead links",
   },
