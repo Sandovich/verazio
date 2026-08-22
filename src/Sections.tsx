@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Globe, Rocket, Presentation } from "lucide-react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
@@ -43,20 +44,114 @@ const SERVICES = [
     title: "Websites",
     body: "Full business websites, built around how your buyers actually decide. A template is built around nobody's. We treat information architecture, copy, and design as one system, so the site does the job a strong marketing hire would do: qualify visitors, explain the offer clearly, move them to a call or a cart.",
     meta: "Delivered in 1–3 weeks",
+    icon: Globe,
   },
   {
     n: "02",
     title: "Landing Pages",
     body: "Pages built for a specific campaign, launch, or market entry — made to convert first and photograph well second. Each one is scoped around a single goal, which means you can run several in parallel across markets or offers without waiting on a full site rebuild.",
     meta: "Scoped per campaign",
+    icon: Rocket,
   },
   {
     n: "03",
     title: "Digital Sales Assets",
     body: "Decks and presentations for the moments that actually close deals — investor pitches, sales meetings, partner proposals. We build the narrative and the design as one piece of work, so the deck argues your case instead of just decorating it.",
     meta: "Made for the room it's presented in, not for a slide library",
+    icon: Presentation,
   },
 ];
+
+const STACK = [
+  "React",
+  "TypeScript",
+  "Tailwind CSS",
+  "Framer Motion",
+  "Vite",
+  "AI-native workflow",
+];
+
+function StackMarquee() {
+  const items = [...STACK, ...STACK];
+  return (
+    <div className="border-t border-black/10 py-5 overflow-hidden">
+      <div className="flex w-max animate-marquee">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="flex items-center shrink-0" aria-hidden={copy === 1}>
+            {items.map((item, i) => (
+              <span
+                key={`${copy}-${item}-${i}`}
+                className="flex items-center text-xs md:text-sm font-semibold tracking-widest uppercase text-black/40 px-6 whitespace-nowrap"
+              >
+                {item}
+                <span className="ml-6 text-accent">•</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SpotlightCard({
+  s,
+  i,
+}: {
+  s: (typeof SERVICES)[number];
+  i: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState({ x: 50, y: 50, active: false });
+
+  return (
+    <Reveal custom={i + 1}>
+      <div
+        ref={ref}
+        onMouseMove={(e) => {
+          const rect = ref.current?.getBoundingClientRect();
+          if (!rect) return;
+          setPos({
+            x: ((e.clientX - rect.left) / rect.width) * 100,
+            y: ((e.clientY - rect.top) / rect.height) * 100,
+            active: true,
+          });
+        }}
+        onMouseLeave={() => setPos((p) => ({ ...p, active: false }))}
+        className="group relative h-full border border-black/10 p-6 md:p-8 overflow-hidden transition-colors hover:border-accent/40"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(280px circle at ${pos.x}% ${pos.y}%, rgba(94,14,215,0.08), transparent 70%)`,
+          }}
+        />
+        <div className="relative">
+          <div className="flex items-center justify-between mb-8">
+            <span className="text-xs md:text-sm font-semibold text-accent">
+              {s.n}
+            </span>
+            <div className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-accent group-hover:border-accent/40 transition-colors">
+              <s.icon className="w-4 h-4" strokeWidth={1.75} />
+            </div>
+          </div>
+          <h3
+            className="font-semibold uppercase mb-3"
+            style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)" }}
+          >
+            {s.title}
+          </h3>
+          <p className="text-sm normal-case tracking-normal font-medium leading-relaxed text-black/70">
+            {s.body}
+          </p>
+          <p className="text-xs font-semibold tracking-widest uppercase text-accent mt-5">
+            {s.meta}
+          </p>
+        </div>
+      </div>
+    </Reveal>
+  );
+}
 
 const PROCESS = [
   { n: "01", name: "Diagnose", input: "Business goal, buyer journey, current assets", output: "Scoped brief — one goal, one build path" },
@@ -101,6 +196,8 @@ const WORK = [
 export default function Sections() {
   return (
     <div className="bg-white text-black font-sans">
+      <StackMarquee />
+
       {/* ABOUT */}
       <section id="about" className="px-5 sm:px-8 md:px-12 py-20 md:py-32 border-t border-black/10">
         <div className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-16">
@@ -158,29 +255,9 @@ export default function Sections() {
           </span>
         </Reveal>
 
-        <div className="divide-y divide-black/10 border-t border-black/10">
+        <div className="grid md:grid-cols-3 gap-6 border-t border-black/10 pt-6">
           {SERVICES.map((s, i) => (
-            <Reveal key={s.n} custom={i + 1}>
-              <div className="grid md:grid-cols-[80px_1fr_2fr] gap-3 md:gap-8 py-8 md:py-10 items-baseline">
-                <span className="text-xs md:text-sm font-semibold text-accent">
-                  {s.n}
-                </span>
-                <h3
-                  className="font-semibold uppercase"
-                  style={{ fontSize: "clamp(1.1rem, 2vw, 1.6rem)" }}
-                >
-                  {s.title}
-                </h3>
-                <div>
-                  <p className="text-sm md:text-base normal-case tracking-normal font-medium leading-relaxed text-black/70">
-                    {s.body}
-                  </p>
-                  <p className="text-xs font-semibold tracking-widest uppercase text-accent mt-3">
-                    {s.meta}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
+            <SpotlightCard key={s.n} s={s} i={i} />
           ))}
         </div>
       </section>
@@ -199,35 +276,49 @@ export default function Sections() {
           </span>
         </Reveal>
 
-        <div className="divide-y divide-black/10 border-t border-black/10">
-          {PROCESS.map((p, i) => (
-            <Reveal key={p.n} custom={i + 1}>
-              <div className="grid md:grid-cols-[80px_180px_1fr_1fr] gap-3 md:gap-8 py-8 items-baseline">
-                <span className="text-xs md:text-sm font-semibold text-accent">
-                  {p.n}
-                </span>
-                <h3 className="font-semibold uppercase text-lg md:text-xl">
-                  {p.name}
-                </h3>
-                <div>
-                  <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-1">
-                    Input
-                  </p>
-                  <p className="text-sm normal-case tracking-normal font-medium text-black/70">
-                    {p.input}
-                  </p>
+        <div className="relative border-t border-black/10 pt-10 md:pt-12">
+          <div className="hidden md:block absolute top-[3.5rem] left-0 right-0 h-px bg-black/10">
+            <motion.div
+              className="h-full bg-accent origin-left"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 1.1, ease: EASE, delay: 0.2 }}
+            />
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8 md:gap-6 relative">
+            {PROCESS.map((p, i) => (
+              <Reveal key={p.n} custom={i + 1}>
+                <div className="flex items-center gap-4 md:block">
+                  <div className="w-10 h-10 shrink-0 rounded-full border border-accent bg-white text-accent flex items-center justify-center text-xs font-semibold relative z-10">
+                    {p.n}
+                  </div>
+                  <h3 className="font-semibold uppercase text-lg md:text-xl md:mt-5">
+                    {p.name}
+                  </h3>
                 </div>
-                <div>
-                  <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-1">
-                    Output
-                  </p>
-                  <p className="text-sm normal-case tracking-normal font-medium text-black/70">
-                    {p.output}
-                  </p>
+                <div className="mt-3 md:mt-5 space-y-3 md:pl-0 pl-14">
+                  <div>
+                    <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-1">
+                      Input
+                    </p>
+                    <p className="text-sm normal-case tracking-normal font-medium text-black/70">
+                      {p.input}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-1">
+                      Output
+                    </p>
+                    <p className="text-sm normal-case tracking-normal font-medium text-black/70">
+                      {p.output}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
