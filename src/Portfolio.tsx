@@ -18,6 +18,7 @@ const fadeUp: Variants = {
 const CASES = [
   {
     n: "01",
+    slug: "hotel-cendre",
     name: "Hôtel Cendre",
     tag: "Boutique hospitality",
     problem:
@@ -25,10 +26,10 @@ const CASES = [
     approach:
       "Built a live \"guest ledger\" that shows the OTA rate and the direct rate side by side, in the room card itself — not buried in a policy page.",
     result: "+34% projected lift in direct bookings",
-    href: "/verazio/demos/hotel-cendre.html",
   },
   {
     n: "02",
+    slug: "castellane-partners",
     name: "Castellane Partners",
     tag: "M&A / advisory",
     problem:
@@ -36,10 +37,10 @@ const CASES = [
     approach:
       "Built a tombstone-wall of sealed mandates with a genuine NDA-style reveal gesture, instead of a generic case-study grid.",
     result: "2.5x projected lift in qualified leads",
-    href: "/verazio/demos/castellane-partners.html",
   },
   {
     n: "03",
+    slug: "prisma",
     name: "Prisma",
     tag: "Creative collective",
     problem:
@@ -47,10 +48,10 @@ const CASES = [
     approach:
       "Scroll-linked letter reveals, video-native feature cards, and a giant type-led hero that treats the wordmark itself as the visual.",
     result: "Scroll-linked reveal, zero layout shift",
-    href: "/verazio/demos/prisma/index.html",
   },
   {
     n: "04",
+    slug: "lumina",
     name: "Lumina",
     tag: "Editorial footer system",
     problem:
@@ -58,10 +59,10 @@ const CASES = [
     approach:
       "Built the liquid-glass footer as its own composable pattern — reusable across page types, not a one-off.",
     result: "Liquid-glass UI kit, reusable across pages",
-    href: "/verazio/demos/lumina/index.html",
   },
   {
     n: "05",
+    slug: "vibrant-wellness",
     name: "Vibrant Wellness",
     tag: "Wellness clinic",
     problem:
@@ -69,7 +70,6 @@ const CASES = [
     approach:
       "Liquid-glass badges, a real human avatar strip, and a single-scroll path from hero straight to \"Begin Your Journey.\"",
     result: "Sub-60s booking flow from hero to form",
-    href: "/verazio/demos/vibrant-wellness/index.html",
   },
 ];
 
@@ -113,16 +113,16 @@ export default function Portfolio() {
       <section className="px-5 sm:px-8 md:px-12 pb-20 md:pb-32">
         <div className="divide-y divide-black/10 border-t border-black/10">
           {CASES.map((c, i) => (
-            <motion.a
+            <motion.div
               key={c.n}
-              href={c.href}
-              target="_blank"
-              rel="noreferrer"
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               custom={i}
+            >
+            <Link
+              to={`/portfolio/${c.slug}`}
               className="group block py-10 md:py-14"
             >
               <div className="flex items-baseline justify-between gap-4 mb-4">
@@ -166,7 +166,8 @@ export default function Portfolio() {
                   </p>
                 </div>
               </div>
-            </motion.a>
+            </Link>
+            </motion.div>
           ))}
         </div>
       </section>

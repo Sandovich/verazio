@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Hero from "./Hero";
 import Sections from "./Sections";
 import Portfolio from "./Portfolio";
+import CaseStudyPage from "./CaseStudy";
 import AiEthics from "./AiEthics";
 
 function Home() {
@@ -35,6 +36,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/:slug" element={<CaseStudyPage />} />
         <Route path="/ai-ethics" element={<AiEthics />} />
       </Routes>
     </BrowserRouter>
