@@ -19,6 +19,7 @@ const fadeDown: Variants = {
 
 const NAV_LINKS = [
   { label: "Story", href: "/#about" },
+  { label: "Team", href: "/#team" },
   { label: "Expertise", href: "/#services" },
   { label: "Studios", href: "/#work" },
   { label: "FAQ", href: "/#faq" },

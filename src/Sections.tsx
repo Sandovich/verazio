@@ -226,6 +226,96 @@ const WORK = [
   },
 ];
 
+const FOUNDERS = [
+  {
+    name: "Яна",
+    role: "Co-Founder & Creative Director",
+    focus:
+      "The instinct behind every brief. If a build doesn't feel right, she's the one who says so before it ships, not after.",
+  },
+  {
+    name: "Вероника",
+    role: "Co-Founder & Client Lead",
+    focus:
+      "The person you'll actually talk to. Keeps every project honest about scope, timeline, and what's realistic before it becomes a problem.",
+  },
+];
+
+const PRODUCTION = [
+  {
+    name: "Александр",
+    role: "Lead Developer",
+    focus:
+      "Turns an approved brief into working code fast enough that \"1 to 3 weeks\" is a schedule, not a marketing line.",
+  },
+  {
+    name: "Камила",
+    role: "Frontend Developer",
+    focus:
+      "Builds the difference between a site that works and one that feels alive — the motion and interaction most studios skip.",
+  },
+  {
+    name: "Николай",
+    role: "AI & Automation Engineer",
+    focus:
+      "Builds the machinery behind the machinery — the AI tooling that lets the rest of the team move at speed without cutting corners.",
+  },
+  {
+    name: "Екатерина",
+    role: "UI/UX Designer",
+    focus:
+      "Draws the line between \"looks like everyone else's AI output\" and something that actually looks considered.",
+  },
+];
+
+const COLLABORATORS = [
+  {
+    name: "Анастасия",
+    role: "Copywriter & Content Strategist",
+    focus: "Writes so a page argues its case in the first five seconds, not somewhere in paragraph four.",
+  },
+  {
+    name: "Влада",
+    role: "QA & Delivery Lead",
+    focus: "The last person who touches a build before your client does. Nothing ships broken on her watch.",
+  },
+];
+
+function PersonCard({
+  person,
+  i,
+  large = false,
+}: {
+  person: { name: string; role: string; focus: string };
+  i: number;
+  large?: boolean;
+}) {
+  return (
+    <Reveal custom={i}>
+      <div className="border border-black/10 p-6 md:p-8 h-full">
+        <div
+          className={`rounded-full bg-black text-white flex items-center justify-center font-semibold mb-5 ${
+            large ? "w-14 h-14 text-lg" : "w-11 h-11 text-sm"
+          }`}
+        >
+          {person.name.charAt(0)}
+        </div>
+        <h3
+          className={`font-semibold uppercase ${large ? "text-xl md:text-2xl" : "text-lg"}`}
+        >
+          {person.name}
+        </h3>
+        <p className="text-xs font-semibold tracking-widest uppercase text-accent mt-1 mb-4">
+          {person.role}
+        </p>
+        <p className="text-sm normal-case tracking-normal font-medium leading-relaxed text-black/70">
+          {person.focus}
+        </p>
+      </div>
+    </Reveal>
+  );
+}
+
 const FAQ = [
   {
     q: "How long does a project actually take?",
@@ -348,6 +438,54 @@ export default function Sections() {
               that used to require someone who knew what they were doing.
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* TEAM */}
+      <section id="team" className="px-5 sm:px-8 md:px-12 py-20 md:py-32 border-t border-black/10">
+        <Reveal className="mb-12 md:mb-20">
+          <p className="text-xs md:text-sm font-semibold tracking-widest uppercase text-accent mb-3">
+            Team
+          </p>
+          <h2
+            className="font-semibold uppercase leading-[0.95]"
+            style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
+          >
+            People, not a pipeline.
+          </h2>
+        </Reveal>
+
+        <div className="mb-12 md:mb-16">
+          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
+            Founders
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {FOUNDERS.map((p, i) => (
+              <PersonCard key={p.name} person={p} i={i} large />
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-12 md:mb-16">
+          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
+            Production
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {PRODUCTION.map((p, i) => (
+              <PersonCard key={p.name} person={p} i={i} />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
+            Collaborators
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {COLLABORATORS.map((p, i) => (
+              <PersonCard key={p.name} person={p} i={i} />
+            ))}
+          </div>
         </div>
       </section>
 
