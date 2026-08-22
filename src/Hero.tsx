@@ -36,17 +36,22 @@ export default function Hero() {
     const video = videoRef.current;
     if (!video) return;
 
-    // autoPlay is not a guarantee — a browser can decline it (autoplay
-    // heuristics, a stalled first fetch, the tab being backgrounded during
-    // load) and leaves the video sitting on frame 1 with its native paused
-    // state, which is what showed up as "sometimes it's just stopped with a
-    // play triangle on it". Nothing in the page ever calls .pause() itself,
-    // so any pause is unintended — retry playback whenever it happens, and
-    // again when the tab regains visibility.
+    // autoPlay is not a guarantee. Muted autoplay is normally allowed
+    // everywhere, but it can still get declined — a data-saver mode, an
+    // in-app browser webview (Telegram/Instagram/etc. ship their own
+    // stricter media policies), a stalled first fetch — and the video is
+    // left sitting on frame 1 with the native paused/play-triangle state.
+    // Event-based retries (pause/canplay/visibilitychange) only fire again
+    // if something changes; if the very first play() is declined and
+    // nothing else happens, there's no event left to catch it. So on top of
+    // those, poll on an interval and — the case that actually unlocks a
+    // hard policy block — retry on the page's very first user interaction,
+    // since a real tap/click/scroll satisfies even the strictest gesture
+    // requirement.
     const tryPlay = () => {
       video.play().catch(() => {
-        // Playback can be legitimately refused (e.g. still buffering) —
-        // the 'canplay'/'visibilitychange' listeners below retry later.
+        // Expected when still buffering or genuinely blocked — the poll
+        // and interaction listeners below keep retrying.
       });
     };
 
@@ -56,16 +61,33 @@ export default function Hero() {
     const onVisible = () => {
       if (!document.hidden && video.paused) tryPlay();
     };
+    const onInteraction = () => {
+      if (video.paused) tryPlay();
+    };
 
     video.addEventListener("pause", onPause);
     video.addEventListener("canplay", tryPlay);
+    video.addEventListener("loadeddata", tryPlay);
     document.addEventListener("visibilitychange", onVisible);
+
+    const interactionEvents = ["pointerdown", "touchstart", "keydown", "scroll"] as const;
+    interactionEvents.forEach((evt) =>
+      window.addEventListener(evt, onInteraction, { passive: true })
+    );
+
+    const pollId = window.setInterval(() => {
+      if (video.paused && !document.hidden) tryPlay();
+    }, 1500);
+
     tryPlay();
 
     return () => {
       video.removeEventListener("pause", onPause);
       video.removeEventListener("canplay", tryPlay);
+      video.removeEventListener("loadeddata", tryPlay);
       document.removeEventListener("visibilitychange", onVisible);
+      interactionEvents.forEach((evt) => window.removeEventListener(evt, onInteraction));
+      window.clearInterval(pollId);
     };
   }, []);
 

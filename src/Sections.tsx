@@ -228,13 +228,13 @@ const WORK = [
 
 const FOUNDERS = [
   {
-    name: "Яна",
+    name: "Yana",
     role: "Co-Founder & Creative Director",
     focus:
       "The instinct behind every brief. If a build doesn't feel right, she's the one who says so before it ships, not after.",
   },
   {
-    name: "Вероника",
+    name: "Veronika",
     role: "Co-Founder & Client Lead",
     focus:
       "The person you'll actually talk to. Keeps every project honest about scope, timeline, and what's realistic before it becomes a problem.",
@@ -243,25 +243,25 @@ const FOUNDERS = [
 
 const PRODUCTION = [
   {
-    name: "Александр",
+    name: "Alexander",
     role: "Lead Developer",
     focus:
       "Turns an approved brief into working code fast enough that \"1 to 3 weeks\" is a schedule, not a marketing line.",
   },
   {
-    name: "Камила",
+    name: "Kamila",
     role: "Frontend Developer",
     focus:
       "Builds the difference between a site that works and one that feels alive — the motion and interaction most studios skip.",
   },
   {
-    name: "Николай",
+    name: "Nikolai",
     role: "AI & Automation Engineer",
     focus:
       "Builds the machinery behind the machinery — the AI tooling that lets the rest of the team move at speed without cutting corners.",
   },
   {
-    name: "Екатерина",
+    name: "Ekaterina",
     role: "UI/UX Designer",
     focus:
       "Draws the line between \"looks like everyone else's AI output\" and something that actually looks considered.",
@@ -270,12 +270,12 @@ const PRODUCTION = [
 
 const COLLABORATORS = [
   {
-    name: "Анастасия",
+    name: "Anastasia",
     role: "Copywriter & Content Strategist",
     focus: "Writes so a page argues its case in the first five seconds, not somewhere in paragraph four.",
   },
   {
-    name: "Влада",
+    name: "Vlada",
     role: "QA & Delivery Lead",
     focus: "The last person who touches a build before your client does. Nothing ships broken on her watch.",
   },
@@ -441,54 +441,6 @@ export default function Sections() {
         </div>
       </section>
 
-      {/* TEAM */}
-      <section id="team" className="px-5 sm:px-8 md:px-12 py-20 md:py-32 border-t border-black/10">
-        <Reveal className="mb-12 md:mb-20">
-          <p className="text-xs md:text-sm font-semibold tracking-widest uppercase text-accent mb-3">
-            Team
-          </p>
-          <h2
-            className="font-semibold uppercase leading-[0.95]"
-            style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
-          >
-            People, not a pipeline.
-          </h2>
-        </Reveal>
-
-        <div className="mb-12 md:mb-16">
-          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
-            Founders
-          </p>
-          <div className="grid sm:grid-cols-2 gap-6">
-            {FOUNDERS.map((p, i) => (
-              <PersonCard key={p.name} person={p} i={i} large />
-            ))}
-          </div>
-        </div>
-
-        <div className="mb-12 md:mb-16">
-          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
-            Production
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PRODUCTION.map((p, i) => (
-              <PersonCard key={p.name} person={p} i={i} />
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
-            Collaborators
-          </p>
-          <div className="grid sm:grid-cols-2 gap-6">
-            {COLLABORATORS.map((p, i) => (
-              <PersonCard key={p.name} person={p} i={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* SERVICES */}
       <section id="services" className="px-5 sm:px-8 md:px-12 py-20 md:py-32 border-t border-black/10">
         <Reveal className="flex items-baseline justify-between mb-12 md:mb-20">
@@ -623,6 +575,54 @@ export default function Sections() {
           {FAQ.map((item, i) => (
             <FAQItem key={item.q} item={item} i={i} />
           ))}
+        </div>
+      </section>
+
+      {/* TEAM */}
+      <section id="team" className="px-5 sm:px-8 md:px-12 py-20 md:py-32 border-t border-black/10">
+        <Reveal className="mb-12 md:mb-20">
+          <p className="text-xs md:text-sm font-semibold tracking-widest uppercase text-accent mb-3">
+            Team
+          </p>
+          <h2
+            className="font-semibold uppercase leading-[0.95]"
+            style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
+          >
+            People, not a pipeline.
+          </h2>
+        </Reveal>
+
+        <div className="mb-12 md:mb-16">
+          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
+            Founders
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {FOUNDERS.map((p, i) => (
+              <PersonCard key={p.name} person={p} i={i} large />
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-12 md:mb-16">
+          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
+            Production
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {PRODUCTION.map((p, i) => (
+              <PersonCard key={p.name} person={p} i={i} />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-5">
+            Collaborators
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {COLLABORATORS.map((p, i) => (
+              <PersonCard key={p.name} person={p} i={i} />
+            ))}
+          </div>
         </div>
       </section>
 
