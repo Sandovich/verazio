@@ -1,29 +1,10 @@
 import { motion, type Variants } from "framer-motion";
 import { X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import { LiquidMetalButton } from "./LiquidMetalButton";
+import { Link } from "react-router-dom";
 
 const MotionLink = motion.create(Link);
-
-// `hidden md:flex` only hides the shader nav visually — React still mounts
-// every LiquidMetalButton underneath it, and each one opens its own WebGL
-// context. On mobile that's 6 contexts doing real GPU/battery work for
-// buttons nobody can even see. Gate the mount itself on viewport width so
-// mobile never creates them at all, not just hides them.
-function useIsDesktopNav() {
-  const [isDesktop, setIsDesktop] = useState(
-    () => typeof window !== "undefined" && window.matchMedia("(min-width: 768px)").matches
-  );
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    const onChange = () => setIsDesktop(mq.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
-  return isDesktop;
-}
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -57,8 +38,6 @@ export function Logo({ className = "" }: { className?: string }) {
 
 export default function Header({ animate = true }: { animate?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
-  const isDesktopNav = useIsDesktopNav();
   const initialState = animate ? "hidden" : false;
 
   return (
@@ -74,26 +53,20 @@ export default function Header({ animate = true }: { animate?: boolean }) {
           <Logo />
         </MotionLink>
 
-        {/* Desktop only — LiquidMetalButton mounts a WebGL context per
-            instance, six of which is real weight on a mobile GPU/battery.
-            Mobile keeps the plain-text menu below instead. */}
-        <div className="hidden md:flex items-center gap-3">
-          {isDesktopNav &&
-            NAV_LINKS.map((link, i) => (
-              <motion.div
-                key={link.label}
-                variants={fadeDown}
-                initial={initialState}
-                animate="visible"
-                custom={i + 1}
-              >
-                <LiquidMetalButton
-                  label={link.label}
-                  compact
-                  onClick={() => navigate(link.href)}
-                />
-              </motion.div>
-            ))}
+        <div className="hidden md:flex items-center gap-10">
+          {NAV_LINKS.map((link, i) => (
+            <MotionLink
+              key={link.label}
+              to={link.href}
+              variants={fadeDown}
+              initial={initialState}
+              animate="visible"
+              custom={i + 1}
+              className="text-sm font-semibold tracking-widest uppercase text-black"
+            >
+              {link.label}
+            </MotionLink>
+          ))}
         </div>
 
         <motion.button
