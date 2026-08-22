@@ -21,20 +21,30 @@ const STATS = [
 
 const HEADING_WORDS = ["Fearless", "Vision", "Delivered"];
 
-const VIDEO_URL =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260517_222138_3e3205be-3364-417b-a64a-bfe087acbec4.mp4";
+// Self-hosted, re-encoded from the original CloudFront asset: 3828x2164 /
+// 17.5 Mbps / 22MB was heavy enough that playback could outrun buffering
+// and visibly stall right at the loop point. Re-encoded to 1920px wide /
+// ~1.8 Mbps / ~2.2MB (libx264, crf 26) — same look, ~10x smaller, loops
+// cleanly once buffered.
+const VIDEO_URL = "/verazio/video/hero-loop.mp4";
 
 export default function Hero() {
   return (
     <div className="relative min-h-screen w-full font-sans uppercase tracking-widest font-semibold text-black overflow-hidden">
-      {/* BACKGROUND VIDEO */}
+      {/* BACKGROUND VIDEO — the sculpture sits left-of-center in the source
+          frame; on a phone's narrow aspect, object-cover's default centered
+          crop pushes it almost entirely out of frame, leaving what reads as
+          an empty white panel. Bias the crop left on mobile so it's actually
+          visible; the wide desktop frame already shows nearly the whole shot
+          at center. */}
       <video
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-[28%_center] md:object-center"
         src={VIDEO_URL}
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
       />
 
       <div className="relative z-10 flex flex-col min-h-screen">
