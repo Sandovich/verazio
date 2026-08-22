@@ -161,6 +161,32 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     result: "Sticky-sidebar layout, zero scroll-jank on handoff",
   },
+  devfolio: {
+    n: "06",
+    name: "Rae Calder",
+    tag: "Concept work — developer portfolio",
+    href: "/verazio/demos/devfolio/index.html",
+    hook: "A portfolio that reads like a spec sheet, not a mood board.",
+    image: "/verazio/case-studies/devfolio-hero.jpg",
+    palette: [
+      { name: "Paper", hex: "#F2F1EA" },
+      { name: "Ink", hex: "#101010" },
+      { name: "Soft grey", hex: "#4A4A46" },
+      { name: "Signal lime", hex: "#D7FF3F" },
+    ],
+    typography: "Archivo at heavy weights for anything structural — the hero, project titles, the marquee — with IBM Plex Mono for every label and rule, so the mono type reads as the system's grid rather than decoration.",
+    brief:
+      "Developer portfolios tend to converge on the same soft, card-grid template — rounded corners, pastel gradients, an icon per skill. A developer site can afford to look more like the work it's selling: opinionated, high-contrast, unapologetically typographic. The brief was to build one that reads as confident and technical on sight, not just in the code underneath it.",
+    approach: [
+      "The hero splits the title across two oversized lines with a row of extended dashes standing in for the gap between them — a layered, almost glitchy typographic device instead of a hero image or 3D object. At this scale the dashes read as bold horizontal marks in their own right, not punctuation.",
+      "Work is presented as a plain numbered index — row, number, title, category, one line of context — rather than a card grid with thumbnails. For a portfolio about craft and code, density and restraint read as more credible than another polished tile grid.",
+    ],
+    build: [
+      "A monospace dash-rule (`repeating-linear-gradient`) stands in for the horizontal rules and code-like dividers common to this genre of site — built as a single reusable component rather than a one-off border style.",
+      "The closing marquee (\"Let's talk — Let's collaborate\") is a genuine seamless CSS loop — the content is duplicated once and the track translates exactly -50%, so it tiles with no visible seam or reset, unlike a naive scroll that jumps at the loop point. No 'visit project' links point anywhere fictional — the four projects are clearly fictional and unlinked rather than pointing at dead URLs.",
+    ],
+    result: "Brutalist type system, zero dead links",
+  },
 };
 
 export default function CaseStudyPage() {

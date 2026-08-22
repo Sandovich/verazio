@@ -258,6 +258,13 @@ const WORK = [
     href: "/verazio/demos/kessler/index.html",
     image: "/verazio/case-studies/kessler-hero.jpg",
   },
+  {
+    name: "Rae Calder",
+    tag: "Concept work — developer portfolio",
+    result: "Brutalist type system, zero dead links",
+    href: "/verazio/demos/devfolio/index.html",
+    image: "/verazio/case-studies/devfolio-hero.jpg",
+  },
 ];
 
 const FAQ = [

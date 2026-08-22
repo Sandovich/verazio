@@ -71,6 +71,17 @@ const CASES = [
       "A sticky sidebar keeps the pitch and the CTA in view while the content scrolls independently — pitch stays fixed, proof does the scrolling.",
     result: "Sticky-sidebar layout, zero scroll-jank on handoff",
   },
+  {
+    n: "06",
+    slug: "devfolio",
+    name: "Rae Calder",
+    tag: "Developer portfolio",
+    problem:
+      "A developer's personal site needed to read as confident and technical at a glance, without leaning on the same soft gradients and card grids every other portfolio uses.",
+    approach:
+      "A brutalist, high-contrast system instead — layered dash typography, a monospace rule grid, and a plain numbered project index in place of icon-and-card tiles.",
+    result: "Brutalist type system, zero dead links",
+  },
 ];
 
 export default function Portfolio() {
@@ -105,7 +116,7 @@ export default function Portfolio() {
           className="mt-6 text-sm md:text-base normal-case tracking-normal font-medium text-black/60 max-w-xl"
         >
           Every case here is read the same way a brief is: what was broken,
-          what we built, what changed. All four are concept work — built by
+          what we built, what changed. All six are concept work — built by
           Verazio to demonstrate range, not delivered for a paying client.
         </motion.p>
       </section>
@@ -178,7 +189,7 @@ export default function Portfolio() {
             className="font-semibold uppercase leading-[0.95]"
             style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
           >
-            Want to be case 05?
+            Want to be case 07?
           </h2>
           <Link
             to="/contact"
