@@ -199,18 +199,21 @@ const WORK = [
     tag: "Concept work — creative collective",
     result: "Scroll-linked reveal, zero layout shift",
     href: "/verazio/demos/prisma/index.html",
+    image: "/verazio/case-studies/prisma-hero.jpg",
   },
   {
     name: "Lumina",
     tag: "Concept work — editorial footer system",
     result: "Liquid-glass UI kit, reusable across pages",
     href: "/verazio/demos/lumina/index.html",
+    image: "/verazio/case-studies/lumina-hero.jpg",
   },
   {
     name: "Vibrant Wellness",
     tag: "Concept work — wellness clinic",
     result: "Sub-60s booking flow from hero to form",
     href: "/verazio/demos/vibrant-wellness/index.html",
+    image: "/verazio/case-studies/vibrant-wellness-hero.jpg",
   },
 ];
 
@@ -281,13 +284,6 @@ function PersonCard({
   return (
     <Reveal custom={i}>
       <div className="border border-black/10 p-6 md:p-8 h-full">
-        <div
-          className={`rounded-full bg-black text-white flex items-center justify-center font-semibold mb-5 ${
-            large ? "w-14 h-14 text-lg" : "w-11 h-11 text-sm"
-          }`}
-        >
-          {person.name.charAt(0)}
-        </div>
         <h3
           className={`font-semibold uppercase ${large ? "text-xl md:text-2xl" : "text-lg"}`}
         >
@@ -527,18 +523,28 @@ export default function Sections() {
                 href={w.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group block border border-black/10 hover:border-accent transition-colors p-6 md:p-8"
+                className="group block border border-black/10 hover:border-accent transition-colors"
               >
-                <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-4">
-                  {w.tag}
-                </p>
-                <h3 className="font-semibold uppercase text-2xl md:text-3xl flex items-center gap-2">
-                  {w.name}
-                  <ArrowUpRight className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </h3>
-                <p className="text-xs font-semibold tracking-widest uppercase text-accent mt-4">
-                  {w.result}
-                </p>
+                <div className="overflow-hidden border-b border-black/10">
+                  <img
+                    src={w.image}
+                    alt={`${w.name} — live build screenshot`}
+                    className="w-full h-44 md:h-52 object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6 md:p-8">
+                  <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-4">
+                    {w.tag}
+                  </p>
+                  <h3 className="font-semibold uppercase text-2xl md:text-3xl flex items-center gap-2">
+                    {w.name}
+                    <ArrowUpRight className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </h3>
+                  <p className="text-xs font-semibold tracking-widest uppercase text-accent mt-4">
+                    {w.result}
+                  </p>
+                </div>
               </a>
             </Reveal>
           ))}

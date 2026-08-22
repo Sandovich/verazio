@@ -5,6 +5,10 @@ import Sections from "./Sections";
 import Portfolio from "./Portfolio";
 import CaseStudyPage from "./CaseStudy";
 import AiEthics from "./AiEthics";
+import Contact from "./Contact";
+import Careers from "./Careers";
+import Journal from "./Journal";
+import JournalPost from "./JournalPost";
 
 function Home() {
   const { hash } = useLocation();
@@ -38,6 +42,10 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio/:slug" element={<CaseStudyPage />} />
         <Route path="/ai-ethics" element={<AiEthics />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/journal" element={<Journal />} />
+        <Route path="/journal/:slug" element={<JournalPost />} />
       </Routes>
     </BrowserRouter>
   );

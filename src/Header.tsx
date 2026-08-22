@@ -23,7 +23,7 @@ const NAV_LINKS = [
   { label: "Studios", href: "/#work" },
   { label: "FAQ", href: "/#faq" },
   { label: "Team", href: "/#team" },
-  { label: "Feedback", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Logo({ className = "" }: { className?: string }) {
@@ -113,7 +113,7 @@ export default function Header({ animate = true }: { animate?: boolean }) {
           </div>
 
           <Link
-            to="/#contact"
+            to="/contact"
             onClick={() => setMenuOpen(false)}
             className="mt-auto flex items-center gap-2 text-xl font-semibold text-accent uppercase tracking-widest"
           >

@@ -135,7 +135,7 @@ export default function AiEthics() {
             </p>
           </div>
           <Link
-            to="/#contact"
+            to="/contact"
             className="flex items-center gap-2 bg-accent text-white font-semibold uppercase tracking-widest text-sm px-6 py-3 shrink-0"
           >
             Start a brief
