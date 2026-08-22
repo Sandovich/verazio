@@ -3,6 +3,8 @@ import { ArrowUpRight, Globe, Rocket, Presentation, Plus, Check } from "lucide-r
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import { LiquidMetalButton } from "./LiquidMetalButton";
+import { TextLoop } from "./TextLoop";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -382,7 +384,7 @@ export default function Sections() {
             className="font-semibold uppercase"
             style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
           >
-            What we build
+            What we build: <TextLoop items={SERVICES.map((s) => s.title)} />
           </h2>
           <span className="text-xs md:text-sm font-semibold tracking-widest text-black/50">
             01 / 03
@@ -537,6 +539,14 @@ export default function Sections() {
               scope the brief and tell you honestly whether 1–3 weeks is
               realistic for it.
             </p>
+            <div className="mt-8">
+              <LiquidMetalButton
+                label="Talk to us directly"
+                onClick={() => {
+                  window.location.href = "mailto:hello@verazio.com";
+                }}
+              />
+            </div>
           </Reveal>
           <Reveal custom={1}>
             <form
