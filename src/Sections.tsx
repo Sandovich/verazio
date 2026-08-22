@@ -1,4 +1,4 @@
-import { motion, type Variants } from "framer-motion";
+import { motion, useInView, type Variants } from "framer-motion";
 import { ArrowUpRight, Globe, Rocket, Presentation } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -90,6 +90,40 @@ function StackMarquee() {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function ProcessRail() {
+  // The connecting line itself can't be the element IntersectionObserver
+  // watches: it starts at scaleX(0), i.e. zero visual area, so it can never
+  // register as "intersecting" and the draw-in animation would never fire.
+  // Watch this stable, untransformed wrapper instead and drive the bar from
+  // that boolean.
+  const railRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(railRef, { once: true, margin: "-80px" });
+
+  return (
+    <div
+      ref={railRef}
+      className="hidden md:grid grid-cols-4 gap-6 h-10 relative mb-5"
+    >
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-black/10">
+        <motion.div
+          className="h-full bg-accent origin-left"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: inView ? 1 : 0 }}
+          transition={{ duration: 1.1, ease: EASE, delay: 0.2 }}
+        />
+      </div>
+      {PROCESS.map((p) => (
+        <div
+          key={p.n}
+          className="w-10 h-10 rounded-full border border-accent bg-white text-accent flex items-center justify-center text-xs font-semibold relative z-10"
+        >
+          {p.n}
+        </div>
+      ))}
     </div>
   );
 }
@@ -276,29 +310,22 @@ export default function Sections() {
           </span>
         </Reveal>
 
-        <div className="relative border-t border-black/10 pt-10 md:pt-12">
-          <div className="hidden md:block absolute top-[3.5rem] left-0 right-0 h-px bg-black/10">
-            <motion.div
-              className="h-full bg-accent origin-left"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 1.1, ease: EASE, delay: 0.2 }}
-            />
-          </div>
+        <div className="border-t border-black/10 pt-10 md:pt-12">
+          <ProcessRail />
 
-          <div className="grid md:grid-cols-4 gap-8 md:gap-6 relative">
+          <div className="grid md:grid-cols-4 gap-8 md:gap-6">
             {PROCESS.map((p, i) => (
               <Reveal key={p.n} custom={i + 1}>
-                <div className="flex items-center gap-4 md:block">
-                  <div className="w-10 h-10 shrink-0 rounded-full border border-accent bg-white text-accent flex items-center justify-center text-xs font-semibold relative z-10">
+                <div className="flex items-center gap-4 mb-3 md:hidden">
+                  <div className="w-10 h-10 shrink-0 rounded-full border border-accent bg-white text-accent flex items-center justify-center text-xs font-semibold">
                     {p.n}
                   </div>
-                  <h3 className="font-semibold uppercase text-lg md:text-xl md:mt-5">
-                    {p.name}
-                  </h3>
+                  <h3 className="font-semibold uppercase text-lg">{p.name}</h3>
                 </div>
-                <div className="mt-3 md:mt-5 space-y-3 md:pl-0 pl-14">
+                <h3 className="hidden md:block font-semibold uppercase text-xl mb-5">
+                  {p.name}
+                </h3>
+                <div className="space-y-3">
                   <div>
                     <p className="text-[10px] font-semibold tracking-widest uppercase text-black/40 mb-1">
                       Input
