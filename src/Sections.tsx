@@ -258,6 +258,13 @@ const WORK = [
     href: "/verazio/demos/devfolio/index.html",
     image: "/verazio/case-studies/devfolio-hero.jpg",
   },
+  {
+    name: "SUB2",
+    tag: "Concept work — race campaign",
+    result: "Single-viewport broadcast hero, zero scroll",
+    href: "/verazio/demos/sub2/index.html",
+    image: "/verazio/case-studies/sub2-hero.jpg",
+  },
 ];
 
 const FAQ = [

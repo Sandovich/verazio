@@ -161,6 +161,32 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     result: "Room-filling type system, zero dead links",
   },
+  sub2: {
+    n: "06",
+    name: "SUB2",
+    tag: "Concept work — race campaign",
+    href: "/verazio/demos/sub2/index.html",
+    hook: "One screen, no scroll — a broadcast plate, not a brochure.",
+    image: "/verazio/case-studies/sub2-hero.jpg",
+    palette: [
+      { name: "Void", hex: "#0B0B0C" },
+      { name: "White", hex: "#FFFFFF" },
+      { name: "White/60", hex: "#FFFFFF99" },
+      { name: "Signal red", hex: "#FF3D2E" },
+    ],
+    typography: "Inter Tight at heavy weights (600–900) for the headline and every button, IBM Plex Mono reserved for the live-campaign label, splits, and stat units — so the mono type reads as a broadcast lower-third rather than decoration.",
+    brief:
+      "A campaign announcing an attempt to break the marathon's 2-hour barrier needed to land like a live broadcast moment, not a scrollable landing page with a hero banner up top. The brief specified a single full-viewport screen with no scroll at all, a looping video plate, and a liquid-glass UI language for every interactive element.",
+    approach: [
+      "The whole page is one screen: a bottom-anchored layout with the headline, status row, and CTAs on the left and a stat rail on the right, everything staggering in with a blurred fade-up on load rather than on scroll — because there's no scroll to trigger anything from.",
+      "Two overlays do the color work instead of a flat dark gradient: a bottom-masked backdrop-blur for legibility, and a separate red 'heat scrim' layered on top with mix-blend-mode: screen, so the campaign's signal color rises from the base without ever flattening or darkening the footage under it.",
+    ],
+    build: [
+      "Every glass surface — the nav pill, the badges, the stat plates — shares one reusable `.liquid-glass` utility class: a near-transparent blurred background plus a gradient-ring pseudo-element masked to just the border, built once and reused everywhere rather than restyled per component.",
+      "Caught a real CSS cascade bug before shipping: `.liquid-glass` sets its own `position: relative` for its border pseudo-element, which was silently overriding the `fixed` utility on the FREE ENTRY badge (same specificity, later in the stylesheet, so the plain rule won) — stretched the badge full-width instead of pinning it as a compact pill. Fixed by moving `.liquid-glass` into Tailwind's `@layer components`, so utility classes always win regardless of source order.",
+    ],
+    result: "Single-viewport broadcast hero, zero scroll",
+  },
 };
 
 export default function CaseStudyPage() {

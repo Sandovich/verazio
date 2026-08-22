@@ -71,6 +71,17 @@ const CASES = [
       "A dark, room-filling Bebas Neue type system matched closely to a specific real reference — huge alternating project titles, a bordered recognition list, and a seamless marquee CTA in place of icon-and-card tiles.",
     result: "Room-filling type system, zero dead links",
   },
+  {
+    n: "06",
+    slug: "sub2",
+    name: "SUB2",
+    tag: "Race campaign",
+    problem:
+      "A campaign site announcing an attempt to break the 2-hour marathon barrier needed to feel like a broadcast moment landing on screen — urgent, athletic, immediate — not a scrollable brochure with a hero banner up top.",
+    approach:
+      "The entire site is one full-viewport screen, no scroll at all — a looping broadcast-style video plate, a heat-tinted blur overlay, and every element staggering in with a blurred fade-up on load instead of on scroll.",
+    result: "Single-viewport broadcast hero, zero scroll",
+  },
 ];
 
 export default function Portfolio() {
@@ -105,7 +116,7 @@ export default function Portfolio() {
           className="mt-6 text-sm md:text-base normal-case tracking-normal font-medium text-black/60 max-w-xl"
         >
           Every case here is read the same way a brief is: what was broken,
-          what we built, what changed. All five are concept work — built by
+          what we built, what changed. All six are concept work — built by
           Verazio to demonstrate range, not delivered for a paying client.
         </motion.p>
       </section>
@@ -178,7 +189,7 @@ export default function Portfolio() {
             className="font-semibold uppercase leading-[0.95]"
             style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
           >
-            Want to be case 06?
+            Want to be case 07?
           </h2>
           <Link
             to="/contact"
