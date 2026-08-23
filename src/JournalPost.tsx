@@ -44,7 +44,7 @@ export default function JournalPost() {
           custom={1}
           className="text-xs md:text-sm font-semibold tracking-widest uppercase text-accent mb-3"
         >
-          {post.category} · {post.date} · {post.readTime}
+          {post.category} · {post.readTime}
         </motion.p>
         <motion.h1
           variants={fadeUp}

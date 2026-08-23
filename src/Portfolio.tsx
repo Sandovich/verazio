@@ -77,10 +77,10 @@ const CASES = [
     name: "SUB2",
     tag: "Race campaign",
     problem:
-      "A campaign site announcing an attempt to break the 2-hour marathon barrier needed to feel like a broadcast moment landing on screen — urgent, athletic, immediate — not a scrollable brochure with a hero banner up top.",
+      "A campaign site announcing an attempt to break the 2-hour marathon barrier needed a broadcast-moment hero landing screen — but also real pages behind it, not four dead nav links pointing nowhere.",
     approach:
-      "The entire site is one full-viewport screen, no scroll at all — a looping broadcast-style video plate, a heat-tinted blur overlay, and every element staggering in with a blurred fade-up on load instead of on scroll.",
-    result: "Single-viewport broadcast hero, zero scroll",
+      "A single full-viewport hero with no scroll — a looping broadcast-style video plate, a heat-tinted blur overlay, staggered blur fade-ups — routes into four real, separately-linkable pages (Attempt/Athlete/Splits/Join) in the same visual language via HashRouter.",
+    result: "One-screen hero, four real pages behind it",
   },
 ];
 

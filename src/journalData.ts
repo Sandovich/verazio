@@ -2,7 +2,6 @@ export type JournalPost = {
   slug: string;
   title: string;
   category: string;
-  date: string;
   readTime: string;
   excerpt: string;
   body: string[];
@@ -13,7 +12,6 @@ export const JOURNAL_POSTS: JournalPost[] = [
     slug: "ai-native-not-ai-only",
     title: "AI-native doesn't mean AI-only",
     category: "Process",
-    date: "2026-08-22",
     readTime: "5 min read",
     excerpt:
       "The timeline changed. The judgment calls didn't move an inch. Here's what actually gets faster when a studio builds this way, and what deliberately doesn't.",
@@ -29,7 +27,6 @@ export const JOURNAL_POSTS: JournalPost[] = [
     slug: "who-owns-what-ai-helped-build",
     title: "Who owns what you didn't fully make yourself",
     category: "Rights & Ethics",
-    date: "2026-08-22",
     readTime: "6 min read",
     excerpt:
       "AI-assisted work raises a real question every serious client eventually asks: what exactly are we allowed to do with this afterward? Our answer, in plain terms.",
@@ -45,7 +42,6 @@ export const JOURNAL_POSTS: JournalPost[] = [
     slug: "why-we-price-after-diagnose",
     title: "Why we quote a price after Diagnose, not before",
     category: "Process",
-    date: "2026-08-22",
     readTime: "4 min read",
     excerpt:
       "A number on the phone before we understand the brief is a guess wearing a suit. Here's why we make you wait a few days for a real one.",

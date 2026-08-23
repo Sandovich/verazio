@@ -40,18 +40,22 @@ function Reveal({
 const ROLES = [
   {
     title: "Full-Stack Developer",
+    type: "Contract · Remote",
     body: "Comfortable owning a build end to end — framework choice through deployment — not just shipping components against someone else's architecture.",
   },
   {
     title: "Frontend / Motion Developer",
+    type: "Contract · Remote",
     body: "The kind of person who notices when an interaction is 80% right and won't ship it until it's actually right.",
   },
   {
     title: "AI & Automation Engineer",
+    type: "Contract · Remote",
     body: "Builds the tooling that makes a 1-to-3-week timeline possible — not just a user of AI tools, someone who wires them into a real production pipeline.",
   },
   {
     title: "UI/UX Designer",
+    type: "Contract · Remote",
     body: "Can defend a layout decision with a reason, not a trend — and knows the difference between a bold design and a generic 'AI-default' one.",
   },
 ];
@@ -78,9 +82,9 @@ export default function Careers() {
           className="font-semibold uppercase leading-[0.95]"
           style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)" }}
         >
-          Not hiring on
+          Open
           <br />
-          a schedule.
+          positions.
         </motion.h1>
         <motion.p
           variants={fadeUp}
@@ -89,31 +93,39 @@ export default function Careers() {
           custom={2}
           className="mt-6 text-sm md:text-base normal-case tracking-normal font-medium text-black/60 max-w-xl"
         >
-          We're a small studio, not a pipeline of open reqs. We're not
-          actively recruiting against a headcount plan right now — but if
-          you're genuinely strong at one of the things below, we'd rather
-          hear from you before we need you than after.
+          We're a small studio, hiring on a rolling basis, not against a
+          fixed headcount plan. Every role below is genuinely open — if
+          you're strong at one of these, reach out.
         </motion.p>
       </section>
 
       <section className="px-5 sm:px-8 md:px-12 pb-20 md:pb-32 border-t border-black/10 pt-16 md:pt-20">
         <Reveal className="mb-12 md:mb-16">
           <p className="text-xs md:text-sm font-semibold tracking-widest uppercase text-black/40">
-            Roles we'd always make time for
+            {ROLES.length} open roles — rolling applications
           </p>
         </Reveal>
 
         <div className="divide-y divide-black/10 border-t border-black/10">
           {ROLES.map((r, i) => (
             <Reveal key={r.title} custom={i + 1}>
-              <div className="grid md:grid-cols-[1fr_1.6fr] gap-3 md:gap-8 py-8 md:py-10 items-baseline">
-                <h3 className="font-semibold uppercase text-lg md:text-xl">
+              <a
+                href={`mailto:careers@verazio.com?subject=${encodeURIComponent(
+                  `Application: ${r.title}`
+                )}`}
+                className="group grid md:grid-cols-[1fr_auto_1.6fr] gap-3 md:gap-8 py-8 md:py-10 items-baseline"
+              >
+                <h3 className="font-semibold uppercase text-lg md:text-xl flex items-center gap-2">
                   {r.title}
+                  <ArrowUpRight className="w-4 h-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </h3>
+                <span className="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-accent">
+                  {r.type}
+                </span>
                 <p className="text-sm md:text-base normal-case tracking-normal font-medium leading-relaxed text-black/70">
                   {r.body}
                 </p>
-              </div>
+              </a>
             </Reveal>
           ))}
         </div>

@@ -261,7 +261,7 @@ const WORK = [
   {
     name: "SUB2",
     tag: "Concept work — race campaign",
-    result: "Single-viewport broadcast hero, zero scroll",
+    result: "One-screen hero, four real pages behind it",
     href: "/verazio/demos/sub2/index.html",
     image: "/verazio/case-studies/sub2-hero.jpg",
   },

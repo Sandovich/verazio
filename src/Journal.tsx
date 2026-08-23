@@ -67,7 +67,7 @@ export default function Journal() {
               <Link to={`/journal/${p.slug}`} className="group block py-10 md:py-14">
                 <div className="flex items-baseline justify-between gap-4 mb-4">
                   <span className="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-black/40">
-                    {p.date} · {p.readTime}
+                    {p.readTime}
                   </span>
                   <span className="hidden sm:block text-[10px] md:text-xs font-semibold tracking-widest uppercase text-accent">
                     {p.category}

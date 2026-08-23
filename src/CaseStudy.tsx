@@ -166,7 +166,7 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     name: "SUB2",
     tag: "Concept work — race campaign",
     href: "/verazio/demos/sub2/index.html",
-    hook: "One screen, no scroll — a broadcast plate, not a brochure.",
+    hook: "A broadcast-moment hero landing page, backing a real multi-page site.",
     image: "/verazio/case-studies/sub2-hero.jpg",
     palette: [
       { name: "Void", hex: "#0B0B0C" },
@@ -174,19 +174,18 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
       { name: "White/60", hex: "#FFFFFF99" },
       { name: "Signal red", hex: "#FF3D2E" },
     ],
-    typography: "Inter Tight at heavy weights (600–900) for the headline and every button, IBM Plex Mono reserved for the live-campaign label, splits, and stat units — so the mono type reads as a broadcast lower-third rather than decoration.",
+    typography: "Inter Tight at heavy weights (600–900) for every headline and button, IBM Plex Mono reserved for labels, splits, and stat units — so the mono type reads as a broadcast lower-third rather than decoration.",
     brief:
-      "A campaign announcing an attempt to break the marathon's 2-hour barrier needed to land like a live broadcast moment, not a scrollable landing page with a hero banner up top. The brief specified a single full-viewport screen with no scroll at all, a looping video plate, and a liquid-glass UI language for every interactive element.",
+      "A campaign announcing an attempt to break the marathon's 2-hour barrier needed a landing moment that felt like a live broadcast, not a scrollable brochure — and it needed real pages behind that moment: the athlete, the pacing plan, the course, how to get involved. Not a one-screen teaser with dead nav links.",
     approach: [
-      "The whole page is one screen: a bottom-anchored layout with the headline, status row, and CTAs on the left and a stat rail on the right, everything staggering in with a blurred fade-up on load rather than on scroll — because there's no scroll to trigger anything from.",
-      "Two overlays do the color work instead of a flat dark gradient: a bottom-masked backdrop-blur for legibility, and a separate red 'heat scrim' layered on top with mix-blend-mode: screen, so the campaign's signal color rises from the base without ever flattening or darkening the footage under it.",
+      "The homepage stays a single full-viewport screen with no scroll at all — bottom-anchored headline and CTAs, a stat rail, everything staggering in with a blurred fade-up on load. Every nav item leads into a real, separately routed page in the same visual language: a dark void, the same liquid-glass surfaces, the same red heat-scrim accent — just laid out as a normal scrolling page once there's more to say than a hero screen can hold.",
+      "Four full pages carry the actual campaign: The Attempt (why sub-two, the rules it runs under), The Athlete (a fictional runner's profile and training philosophy), Splits (a real 10-row pacing table plus pacer-team and weather context), and Join (four ways to get involved, an FAQ, a real copy-to-clipboard email). Routed with `HashRouter` rather than `BrowserRouter` — this is a static bundle nested under another site's `/demos/sub2/` path with no server-side rewrite rule of its own, and hash routes never touch the server on navigation or refresh.",
     ],
     build: [
-      "Every glass surface — the nav pill, the badges, the stat plates — shares one reusable `.liquid-glass` utility class: a near-transparent blurred background plus a gradient-ring pseudo-element masked to just the border, built once and reused everywhere rather than restyled per component.",
-      "Caught two real bugs before shipping. First, a CSS cascade issue: `.liquid-glass` sets its own `position: relative` for its border pseudo-element, which was silently overriding the `fixed` utility on the FREE ENTRY badge (same specificity, later in the stylesheet, so the plain rule won) — fixed by moving `.liquid-glass` into Tailwind's `@layer components`, so utility classes always win regardless of source order. Second, a mobile-only bug: the root container used `height: 100vh`, which on Safari is measured against the browser chrome collapsed — on a page with no scroll at all, that pushed the CTAs and stats below the real visible fold with no way to reach them. Switched to `100dvh`, which tracks the actual current viewport.",
-      "The nav (The Attempt / The Athlete / Splits / Join) originally pointed at dead `#` links. Built each one out as a full-screen content panel — course facts, a fictional athlete profile, a real 10-row pacing-split table, and ways to get involved — that opens with a blurred scale-up transition over the hero rather than routing to a separate page, keeping the 'one screen' premise intact even once you're a layer deep.",
+      "Every glass surface — the nav pill, the badges, the stat plates — shares one reusable `.liquid-glass` utility class, wrapped in Tailwind's `@layer components` after a real cascade bug: its own `position: relative` was silently overriding the `fixed` utility on the homepage's FREE ENTRY badge (same specificity, later in the stylesheet, so the plain rule won).",
+      "Caught a second real bug pre-launch: the homepage's root container used `height: 100vh`, which Safari measures against the collapsed-chrome viewport — on a page with zero scroll by design, that pushed the CTAs and stats below the real visible fold with no way to reach them on an actual phone. Switched to `100dvh` (with a plain vh fallback) across the whole `html/body/#root` chain.",
     ],
-    result: "Single-viewport broadcast hero, zero scroll",
+    result: "One-screen hero, four real pages behind it",
   },
 };
 
