@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verazio</title>
     <script>
+      // The browser's own scroll restoration re-applies the last pixel
+      // offset on reload — after a fresh deploy the page content above that
+      // offset is a different height, so the site opens mid-page instead of
+      // at the top. Must run before the browser's restoration kicks in,
+      // hence inline here rather than in a module script.
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+    </script>
+    <script>
       // Counterpart to public/404.html — restore the real path GitHub Pages
       // bounced through a query string, before React Router ever sees the URL.
       (function (l) {
@@ -25,8 +35,8 @@
         }
       })(window.location);
     </script>
-    <script type="module" crossorigin src="/verazio/assets/index-BLu73uoZ.js"></script>
-    <link rel="stylesheet" crossorigin href="/verazio/assets/index-SbSCQ1tE.css">
+    <script type="module" crossorigin src="/verazio/assets/index-8DEqTlx5.js"></script>
+    <link rel="stylesheet" crossorigin href="/verazio/assets/index-DvupX35I.css">
   </head>
   <body>
     <div id="root"></div>
