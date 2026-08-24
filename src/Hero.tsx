@@ -138,7 +138,7 @@ export default function Hero() {
   return (
     <div
       ref={heroRef}
-      className="relative min-h-screen w-full font-sans uppercase tracking-widest font-semibold text-black overflow-hidden"
+      className="relative min-h-dvh w-full font-sans uppercase tracking-widest font-semibold text-black overflow-hidden"
     >
       {/* BACKGROUND — desktop keeps the original hero video (the sculpture
           sits left-of-center in the source frame; object-cover's centered
@@ -165,7 +165,7 @@ export default function Hero() {
         />
       )}
 
-      <div className="relative z-10 flex flex-col min-h-screen">
+      <div className="relative z-10 flex flex-col min-h-dvh">
         <Header />
 
         {/* STATS ROW — pinned to the top on mobile, since the sculpture fills
