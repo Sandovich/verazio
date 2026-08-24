@@ -136,9 +136,17 @@ export default function Hero() {
   }, []);
 
   return (
+    // svh, not dvh: dvh tracks Safari's toolbar live, so as the toolbar
+    // auto-collapses mid-scroll this container would grow taller in real
+    // time — since the sculpture's clip band and the stats/headline
+    // spacing are all sized off this container, that read as the
+    // sculpture suddenly enlarging and the text dropping mid-scroll. svh
+    // is fixed at the smallest-toolbars-visible height, so the hero never
+    // resizes after paint — trades a little empty space once the toolbar
+    // hides for a layout that never jumps.
     <div
       ref={heroRef}
-      className="relative min-h-dvh w-full font-sans uppercase tracking-widest font-semibold text-black overflow-hidden"
+      className="relative min-h-svh w-full font-sans uppercase tracking-widest font-semibold text-black overflow-hidden"
     >
       {/* BACKGROUND — desktop keeps the original hero video (the sculpture
           sits left-of-center in the source frame; object-cover's centered
@@ -165,7 +173,7 @@ export default function Hero() {
         />
       )}
 
-      <div className="relative z-10 flex flex-col min-h-dvh">
+      <div className="relative z-10 flex flex-col min-h-svh">
         <Header />
 
         {/* STATS ROW — pinned to the top on mobile, since the sculpture fills
