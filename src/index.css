@@ -18,6 +18,16 @@ body,
   margin: 0;
   padding: 0;
   min-height: 100%;
+  /* Reveal/entrance animations (Assemble, Reveal, ScatterText…) sit cards
+     and letters dozens of pixels off to the side in their pre-scroll
+     "hidden" state via a transform, sometimes well below the fold. A
+     transform-offset element isn't clipped by its own section — nothing
+     in this app wraps every animated block in its own overflow-hidden —
+     so those off-screen positions were inflating the whole document's
+     scrollable width and letting the entire page pan sideways on touch,
+     even from the very top of the page. Clipped here once, at the root,
+     instead of chasing it through every animated component. */
+  overflow-x: hidden;
 }
 
 body {
